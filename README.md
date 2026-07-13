@@ -1,26 +1,26 @@
 # Turdiali Xasanbayev — Portfolio
 
-A single-page, macOS/iOS-inspired personal business card website built with vanilla HTML, CSS, and JavaScript.
+A single-page, Apple-inspired personal business card website built with HTML, CSS, and a touch of JavaScript.
 
 🔗 **Live site:** [turdialixasanbayev.github.io/portfolio](https://turdialixasanbayev.github.io/portfolio/)
 
 ## Overview
 
-This is a lightweight, responsive portfolio site designed to look and feel like a native macOS window — complete with a traffic-light title bar, a translucent Dock-style contact bar, and a bento-grid layout for skills. No frameworks, no build step — just static files deployed via GitHub Pages.
+A lightweight, responsive portfolio card presenting who I am, what I work with, and how to reach me — all on a single scroll-free page. Built with no frameworks and no build step, and deployed as static files via GitHub Pages.
 
 ## Sections
 
-- **Hero** — name, role, and avatar
-- **Skills** — Python, Django/DRF, FastAPI, Linux
-- **Projects** — featured work with short descriptions
-- **Contact** — email, Telegram, Instagram, GitHub, and phone
+- **Profile** — name, role, and avatar
+- **Skills** — Python, Django/DRF
+- **Projects** — featured work with short descriptions and links
+- **Contact** — email, Telegram, and GitHub
 - **Footer**
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (Flexbox, Grid, custom properties, backdrop blur)
-- Vanilla JavaScript
+- CSS3 (Flexbox, Grid, CSS custom properties)
+- Vanilla JavaScript (footer year auto-update)
 - [Font Awesome](https://fontawesome.com/) for icons
 
 ## Project Structure
@@ -34,14 +34,17 @@ portfolio/
 └── README.md
 ```
 
+All styles are kept inline within `index.html` — no separate CSS file needed for a page this size.
+
 ## Design
 
-The interface borrows core visual patterns from Apple's macOS and iOS design language:
+The layout takes cues from Apple's product and interface design language:
 
-- Window chrome with red/yellow/green traffic-light buttons
-- Rounded corners and soft, layered shadows
-- A blurred, floating Dock for social/contact links
-- A minimal, neutral color palette with a single blue accent
+- A clean, centered card with soft rounded corners
+- A subtle, layered shadow for depth
+- A neutral gray-blue palette with a single blue accent
+- A rounded gradient avatar badge
+- A pill-style social bar for contact links
 
 ## Running Locally
 
@@ -50,10 +53,14 @@ No build tools required. Clone the repo and open `index.html` directly in a brow
 ```bash
 git clone https://github.com/turdialixasanbayev/portfolio.git
 cd portfolio
-python3 -m http.server 8000
+python3 -m http.server
 ```
 
-Then visit `http://localhost:8000`.
+Then visit `http://127.0.0.1:8000`.
+
+## SEO & Sharing
+
+The page includes meta tags for search engines and social previews (Open Graph + Twitter Card), along with a canonical URL and a custom favicon.
 
 ## Deployment
 
