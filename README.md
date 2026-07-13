@@ -68,7 +68,7 @@ Deployed automatically via **GitHub Pages** from the repository root.
 
 ## Contact
 
-- ✉️ Email: [xasanbayevturdiali92@gmail.com](mailto:xasanbayevturdiali92@gmail.com)
+- ✉️ Email: [xasanbayevturdiali7@gmail.com](mailto:xasanbayevturdiali7@gmail.com)
 - 💬 Telegram: [@turdialixasanbayev](https://t.me/turdialixasanbayev)
 - 🐙 GitHub: [@turdialixasanbayev](https://github.com/turdialixasanbayev)
 
