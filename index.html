@@ -361,6 +361,41 @@
             font-weight: 700;
         }
 
+        .resume-panel {
+            grid-column: 1 / -1;
+        }
+
+        .resume-download {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resume-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .resume-info h3 {
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .resume-info p {
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
         @media (max-width: 720px) {
             .content-grid {
                 grid-template-columns: 1fr;
@@ -417,14 +452,14 @@
                 <section class="panel" aria-labelledby="projects-heading">
                     <h2 class="section-title" id="projects-heading">Projects</h2>
                     <div class="projects-list">
-                        <a href="https://www.iqtisodiybilim.uz" target="_blank" class="project-item">
+                        <a href="https://iqtisodiybilim.uz" target="_blank" class="project-item">
                             <div class="project-left">
                                 <div class="project-icon-wrapper">
                                     <i class="fa-solid fa-file-lines"></i>
                                 </div>
                                 <div class="project-info">
                                     <h3>iqtisodiybilim.uz</h3>
-                                    <p>Economics blog & articles platform</p>
+                                    <p>Economics blog and articles platform</p>
                                 </div>
                             </div>
                             <div class="external-link-icon">
@@ -433,6 +468,24 @@
                         </a>
                     </div>
                 </section>
+            </section>
+
+            <section class="panel resume-panel" aria-labelledby="resume-heading">
+                <h2 class="section-title" id="resume-heading">Resume</h2>
+                <a href="./resume.pdf" class="resume-download" download aria-label="Download resume PDF">
+                    <div class="project-left">
+                        <div class="project-icon-wrapper">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </div>
+                        <div class="resume-info">
+                            <h3>Download Resume</h3>
+                            <p>PDF file</p>
+                        </div>
+                    </div>
+                    <div class="external-link-icon">
+                        <i class="fa-solid fa-download"></i>
+                    </div>
+                </a>
             </section>
 
             <footer class="contact-section">
