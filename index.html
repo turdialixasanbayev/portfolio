@@ -37,13 +37,15 @@
 
     <style>
         :root {
-            --bg-color: #eef2f7;
+            --bg-color: #f5f7ff;
             --card-bg: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
             --accent-blue: #2563eb;
-            --border-color: #f1f5f9;
-            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --accent-peach: #f59e0b;
+            --accent-mint: #10b981;
+            --border-color: #e8eefc;
+            --shadow: 0 24px 60px -24px rgba(37, 99, 235, 0.24), 0 10px 24px rgba(15, 23, 42, 0.06);
         }
 
         * {
@@ -54,84 +56,165 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.18), transparent 20%),
+                linear-gradient(135deg, #f7f9ff, #eef4ff);
             min-height: 100vh;
-            padding: 20px;
+            padding: 24px;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .card-container {
-            background-color: var(--card-bg);
-            width: 100%;
-            max-width: 550px;
-            border-radius: 24px;
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            width: 190px;
+            height: 190px;
+            background: rgba(37, 99, 235, 0.1);
+            top: 5%;
+            left: 4%;
+        }
+
+        body::after {
+            width: 220px;
+            height: 220px;
+            background: rgba(245, 158, 11, 0.12);
+            bottom: 4%;
+            right: 4%;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 1;
+            max-width: 940px;
+            margin: 0 auto;
+        }
+
+        .portfolio-card {
+            position: relative;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfefe 100%);
+            border-radius: 34px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 34px;
+            display: grid;
+            gap: 24px;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+        }
+
+        .portfolio-card::before {
+            content: "✦";
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            font-size: 22px;
+            color: #f59e0b;
+            opacity: 0.9;
         }
 
         .profile-section {
             text-align: center;
-            margin-bottom: 35px;
+            position: relative;
+            padding-top: 8px;
+        }
+
+        .profile-section::before,
+        .profile-section::after {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            top: 8px;
+        }
+
+        .profile-section::before {
+            left: 6px;
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        .profile-section::after {
+            right: 6px;
+            background: rgba(16, 185, 129, 0.12);
         }
 
         .avatar-container {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            border-radius: 24px;
+            width: 108px;
+            height: 108px;
+            background: linear-gradient(135deg, #60a5fa, #2563eb 60%, #1d4ed8);
+            border-radius: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 32px;
-            font-weight: bold;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0 auto 18px auto;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.22);
+            transform: rotate(-4deg);
+            position: relative;
+        }
+
+        .avatar-container::after {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border-radius: 34px;
+            border: 2px dashed rgba(37, 99, 235, 0.22);
         }
 
         .profile-section h1 {
             color: var(--text-main);
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 6px;
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
         }
 
         .profile-section p {
             color: var(--text-muted);
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 700;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .panel {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
         }
 
         .section-title {
-            align-self: flex-start;
-            color: var(--text-muted);
+            color: #7c8aa5;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             text-transform: uppercase;
-            width: 100%;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
-            width: 100%;
-            margin-bottom: 35px;
         }
 
         .skill-item {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 16px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -139,19 +222,23 @@
             text-decoration: none;
             color: var(--text-main);
             font-size: 14px;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 700;
+            border-radius: 16px;
+            padding: 16px 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .skill-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transform: translateY(-3px) rotate(-1deg);
+            box-shadow: 0 14px 25px rgba(15, 23, 42, 0.08);
         }
 
         .skill-icon-wrapper {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -169,73 +256,71 @@
         }
 
         .projects-list {
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 12px;
-            width: 100%;
-            margin-bottom: 35px;
         }
 
         .project-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 16px;
+            gap: 16px;
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 14px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transform: translateY(-3px) rotate(0.4deg);
+            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
         }
 
         .project-left {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
         }
 
         .project-icon-wrapper {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 20px;
-        }
-
-        .p-iqtisod .project-icon-wrapper {
-            background-color: #eff6ff;
+            background: #eef4ff;
             color: #2563eb;
+            flex-shrink: 0;
         }
 
         .project-info h3 {
             color: var(--text-main);
             font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 2px;
+            font-weight: 800;
+            margin-bottom: 3px;
         }
 
         .project-info p {
             color: var(--text-muted);
             font-size: 13px;
+            font-weight: 600;
         }
 
         .external-link-icon {
             color: #94a3b8;
             font-size: 14px;
+            flex-shrink: 0;
         }
 
         .contact-section {
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 16px;
         }
 
         .social-bar {
@@ -243,16 +328,16 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
-            background-color: #ffffff;
+            background: #ffffff;
             border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 8px 16px;
-            margin-bottom: 25px;
+            border-radius: 999px;
+            padding: 8px 12px;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
         }
 
         .social-icon {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -260,31 +345,40 @@
             font-size: 18px;
             text-decoration: none;
             border-radius: 50%;
-            transition: background-color 0.2s, color 0.2s;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
         }
 
         .social-icon:hover {
-            background-color: #f1f5f9;
+            background-color: #eff6ff;
             color: var(--accent-blue);
+            transform: scale(1.08);
         }
 
         .footer-text {
             color: #94a3b8;
             font-size: 11px;
             letter-spacing: 0.3px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 720px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
-            .card-container {
-                padding: 30px 20px;
+            body {
+                padding: 16px;
+            }
+
+            .portfolio-card {
+                padding: 24px 18px;
+                border-radius: 26px;
             }
 
             .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .profile-section h1 {
-                font-size: 22px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
     </style>
@@ -293,80 +387,86 @@
 
 <body>
 
-    <div class="card-container">
+    <main class="page-shell">
+        <article class="portfolio-card">
+            <header class="profile-section">
+                <div class="avatar-container">TX</div>
+                <h1>Turdiali Xasanbayev</h1>
+                <p>Backend Developer • (Python/Django)</p>
+            </header>
 
-        <div class="profile-section">
-            <div class="avatar-container">TX</div>
-            <h1>Turdiali Xasanbayev</h1>
-            <p>Backend Developer • (Python/Django)</p>
-        </div>
-
-        <div class="section-title">Skills</div>
-        <div class="skills-grid">
-            <div class="skill-item python">
-                <div class="skill-icon-wrapper">
-                    <i class="fa-brands fa-python"></i>
-                </div>
-                <span>Python</span>
-            </div>
-            <div class="skill-item django">
-                <div class="skill-icon-wrapper">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <span>Django/DRF</span>
-            </div>
-        </div>
-
-        <div class="section-title">Projects</div>
-        <div class="projects-list">
-            <a href="https://www.iqtisodiybilim.uz" target="_blank" class="project-item p-iqtisod">
-                <div class="project-left">
-                    <div class="project-icon-wrapper">
-                        <i class="fa-solid fa-file-lines"></i>
+            <section class="content-grid">
+                <section class="panel" aria-labelledby="skills-heading">
+                    <h2 class="section-title" id="skills-heading">Skills</h2>
+                    <div class="skills-grid">
+                        <a href="#" class="skill-item python" aria-label="Python skill">
+                            <div class="skill-icon-wrapper">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <span>Python</span>
+                        </a>
+                        <a href="#" class="skill-item django" aria-label="Django and DRF skill">
+                            <div class="skill-icon-wrapper">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <span>Django/DRF</span>
+                        </a>
                     </div>
-                    <div class="project-info">
-                        <h3>iqtisodiybilim.uz</h3>
-                        <p>Economics blog & articles platform</p>
+                </section>
+
+                <section class="panel" aria-labelledby="projects-heading">
+                    <h2 class="section-title" id="projects-heading">Projects</h2>
+                    <div class="projects-list">
+                        <a href="https://www.iqtisodiybilim.uz" target="_blank" class="project-item">
+                            <div class="project-left">
+                                <div class="project-icon-wrapper">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>iqtisodiybilim.uz</h3>
+                                    <p>Economics blog & articles platform</p>
+                                </div>
+                            </div>
+                            <div class="external-link-icon">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://www.xasanbayev.uz" target="_blank" class="project-item">
+                            <div class="project-left">
+                                <div class="project-icon-wrapper">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>xasanbayev.uz</h3>
+                                    <p>Portfolio web site build with django</p>
+                                </div>
+                            </div>
+                            <div class="external-link-icon">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                        </a>
                     </div>
-                </div>
-                <div class="external-link-icon">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-            </a>
+                </section>
+            </section>
 
-            <a href="https://www.xasanbayev.uz" target="_blank" class="project-item p-iqtisod">
-                <div class="project-left">
-                    <div class="project-icon-wrapper">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>xasanbayev.uz</h3>
-                        <p>Portfolio web site build with django</p>
-                    </div>
+            <footer class="contact-section">
+                <h2 class="section-title" style="text-align: center; margin: 0;">Contact</h2>
+                <div class="social-bar" aria-label="Social links">
+                    <a href="mailto:xasanbayevturdiali7@gmail.com" class="social-icon" title="Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a href="https://t.me/turdialixasanbayev" target="_blank" class="social-icon" title="Telegram"><i
+                            class="fa-brands fa-telegram"></i></a>
+                    <a href="https://github.com/turdialixasanbayev" target="_blank" class="social-icon" title="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
                 </div>
-                <div class="external-link-icon">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                <div class="footer-text">
+                    &copy; <span id="year"></span> Turdiali Xasanbayev
                 </div>
-            </a>
-        </div>
-
-        <div class="contact-section">
-            <div class="section-title" style="text-align: center; align-self: center;">Contact</div>
-            <div class="social-bar">
-                <a href="mailto:xasanbayevturdiali7@gmail.com" class="social-icon" title="Email"><i
-                        class="fa-solid fa-envelope"></i></a>
-                <a href="https://t.me/turdialixasanbayev" target="_blank" class="social-icon" title="Telegram"><i
-                        class="fa-brands fa-telegram"></i></a>
-                <a href="https://github.com/turdialixasanbayev" target="_blank" class="social-icon" title="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
-            </div>
-
-            <div class="footer-text">
-                &copy; <span id="year"></span> Turdiali Xasanbayev
-            </div>
-        </div>
-
-    </div>
+            </footer>
+        </article>
+    </main>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
