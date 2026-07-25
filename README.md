@@ -2,7 +2,7 @@
 
 A single-page, Apple-inspired personal business card website built with HTML, CSS, and a touch of JavaScript.
 
-🔗 **Live site:** [turdialixasanbayev.github.io/portfolio](https://turdialixasanbayev.github.io/portfolio/)
+🔗 **Live site:** [xasanbayev.uz](https://xasanbayev.uz/)
 
 ## Overview
 
