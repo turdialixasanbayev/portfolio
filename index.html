@@ -37,15 +37,20 @@
 
     <style>
         :root {
-            --bg-color: #f5f7ff;
+            /* Single accent color + single neutral, used consistently everywhere */
+            --accent: #2563eb;
+            --accent-soft: #eff6ff;
+            --accent-dark: #1d4ed8;
+
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-900: #1e293b;
+
             --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --accent-blue: #2563eb;
-            --accent-peach: #f59e0b;
-            --accent-mint: #10b981;
-            --border-color: #e8eefc;
-            --shadow: 0 24px 60px -24px rgba(37, 99, 235, 0.24), 0 10px 24px rgba(15, 23, 42, 0.06);
+            --shadow: 0 20px 45px -22px rgba(37, 99, 235, 0.22), 0 6px 16px rgba(15, 23, 42, 0.05);
         }
 
         * {
@@ -56,16 +61,14 @@
         }
 
         body {
-            background:
-                radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.18), transparent 20%),
-                linear-gradient(135deg, #f7f9ff, #eef4ff);
+            background: linear-gradient(150deg, var(--neutral-50), #eef2fb);
             min-height: 100vh;
-            padding: 24px;
+            padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* Subtle single-color decorative blobs (accent only, low opacity) */
         body::before,
         body::after {
             content: "";
@@ -73,20 +76,19 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
+            background: rgba(37, 99, 235, 0.08);
         }
 
         body::before {
-            width: 190px;
-            height: 190px;
-            background: rgba(37, 99, 235, 0.1);
-            top: 5%;
+            width: 160px;
+            height: 160px;
+            top: 4%;
             left: 4%;
         }
 
         body::after {
-            width: 220px;
-            height: 220px;
-            background: rgba(245, 158, 11, 0.12);
+            width: 180px;
+            height: 180px;
             bottom: 4%;
             right: 4%;
         }
@@ -100,219 +102,170 @@
 
         .portfolio-card {
             position: relative;
-            background: linear-gradient(180deg, #ffffff 0%, #fdfefe 100%);
-            border-radius: 34px;
+            background: var(--card-bg);
+            border-radius: 28px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            padding: 34px;
+            padding: 26px;
             display: grid;
-            gap: 24px;
-            border: 1px solid rgba(37, 99, 235, 0.08);
-        }
-
-        .portfolio-card::before {
-            content: "✦";
-            position: absolute;
-            top: 16px;
-            right: 18px;
-            font-size: 22px;
-            color: #f59e0b;
-            opacity: 0.9;
+            gap: 16px;
+            border: 1px solid var(--neutral-200);
         }
 
         .profile-section {
             text-align: center;
-            position: relative;
-            padding-top: 8px;
-        }
-
-        .profile-section::before,
-        .profile-section::after {
-            content: "";
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            top: 8px;
-        }
-
-        .profile-section::before {
-            left: 6px;
-            background: rgba(37, 99, 235, 0.12);
-        }
-
-        .profile-section::after {
-            right: 6px;
-            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 0 4px;
         }
 
         .avatar-container {
-            width: 108px;
-            height: 108px;
-            background: linear-gradient(135deg, #60a5fa, #2563eb 60%, #1d4ed8);
-            border-radius: 30px;
+            width: 92px;
+            height: 92px;
+            background: linear-gradient(135deg, #60a5fa, var(--accent) 60%, var(--accent-dark));
+            border-radius: 26px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 34px;
+            font-size: 30px;
             font-weight: 800;
-            margin: 0 auto 18px auto;
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.22);
-            transform: rotate(-4deg);
-            position: relative;
-        }
-
-        .avatar-container::after {
-            content: "";
-            position: absolute;
-            inset: -8px;
-            border-radius: 34px;
-            border: 2px dashed rgba(37, 99, 235, 0.22);
+            margin: 0 auto 14px auto;
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
         }
 
         .profile-section h1 {
-            color: var(--text-main);
-            font-size: clamp(26px, 4vw, 34px);
+            color: var(--neutral-900);
+            font-size: clamp(24px, 4vw, 32px);
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.03em;
         }
 
         .profile-section p {
-            color: var(--text-muted);
-            font-size: 15px;
+            color: var(--neutral-500);
+            font-size: 14px;
             font-weight: 700;
         }
 
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
+            gap: 14px;
         }
 
         .panel {
-            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 22px;
-            padding: 18px;
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
+            background: var(--card-bg);
+            border: 1px solid var(--neutral-200);
+            border-radius: 18px;
+            padding: 16px;
         }
 
         .section-title {
-            color: #7c8aa5;
-            font-size: 12px;
+            color: var(--neutral-400);
+            font-size: 11px;
             font-weight: 800;
             letter-spacing: 1px;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
+            gap: 10px;
         }
 
         .skill-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
-            color: var(--text-main);
-            font-size: 14px;
+            color: var(--neutral-900);
+            font-size: 13px;
             font-weight: 700;
-            border-radius: 16px;
-            padding: 16px 12px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 14px;
+            padding: 12px 10px;
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .skill-item:hover {
-            transform: translateY(-3px) rotate(-1deg);
-            box-shadow: 0 14px 25px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
         }
 
+        /* All skill icons share the single accent color now */
         .skill-icon-wrapper {
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
-        }
-
-        .python .skill-icon-wrapper {
-            background-color: #eff6ff;
-            color: #2563eb;
-        }
-
-        .django .skill-icon-wrapper {
-            background-color: #f5f3ff;
-            color: #7c3aed;
+            font-size: 16px;
+            background-color: var(--accent-soft);
+            color: var(--accent);
         }
 
         .projects-list {
             display: grid;
-            gap: 12px;
+            gap: 10px;
         }
 
         .project-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
+            gap: 14px;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 16px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 12px;
+            border-radius: 14px;
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-3px) rotate(0.4deg);
-            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
         }
 
         .project-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .project-icon-wrapper {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 20px;
-            background: #eef4ff;
-            color: #2563eb;
+            font-size: 17px;
+            background: var(--accent-soft);
+            color: var(--accent);
             flex-shrink: 0;
         }
 
         .project-info h3 {
-            color: var(--text-main);
-            font-size: 15px;
+            color: var(--neutral-900);
+            font-size: 14px;
             font-weight: 800;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .project-info p {
-            color: var(--text-muted);
-            font-size: 13px;
+            color: var(--neutral-500);
+            font-size: 12px;
             font-weight: 600;
         }
 
         .external-link-icon {
-            color: #94a3b8;
-            font-size: 14px;
+            color: var(--neutral-400);
+            font-size: 13px;
             flex-shrink: 0;
         }
 
@@ -320,42 +273,41 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            padding-top: 2px;
         }
 
         .social-bar {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
+            gap: 6px;
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
             border-radius: 999px;
-            padding: 8px 12px;
-            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+            padding: 6px 10px;
         }
 
         .social-icon {
-            width: 38px;
-            height: 38px;
+            width: 34px;
+            height: 34px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #334155;
-            font-size: 18px;
+            color: var(--neutral-500);
+            font-size: 16px;
             text-decoration: none;
             border-radius: 50%;
-            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+            transition: background-color 0.15s, color 0.15s;
         }
 
         .social-icon:hover {
-            background-color: #eff6ff;
-            color: var(--accent-blue);
-            transform: scale(1.08);
+            background-color: var(--accent-soft);
+            color: var(--accent);
         }
 
         .footer-text {
-            color: #94a3b8;
+            color: var(--neutral-400);
             font-size: 11px;
             letter-spacing: 0.3px;
             font-weight: 700;
@@ -371,28 +323,28 @@
             justify-content: space-between;
             gap: 14px;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 16px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 12px;
+            border-radius: 14px;
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-200);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .resume-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 28px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
         }
 
         .resume-info h3 {
-            color: var(--text-main);
-            font-size: 15px;
+            color: var(--neutral-900);
+            font-size: 14px;
             font-weight: 800;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .resume-info p {
-            color: var(--text-muted);
-            font-size: 13px;
+            color: var(--neutral-500);
+            font-size: 12px;
             font-weight: 600;
         }
 
@@ -404,12 +356,13 @@
 
         @media (max-width: 480px) {
             body {
-                padding: 16px;
+                padding: 12px;
             }
 
             .portfolio-card {
-                padding: 24px 18px;
-                border-radius: 26px;
+                padding: 18px 14px;
+                border-radius: 22px;
+                gap: 12px;
             }
 
             .skills-grid {
@@ -434,13 +387,13 @@
                 <section class="panel" aria-labelledby="skills-heading">
                     <h2 class="section-title" id="skills-heading">Skills</h2>
                     <div class="skills-grid">
-                        <a href="#" class="skill-item python" aria-label="Python skill">
+                        <a href="#" class="skill-item" aria-label="Python skill">
                             <div class="skill-icon-wrapper">
                                 <i class="fa-brands fa-python"></i>
                             </div>
                             <span>Python</span>
                         </a>
-                        <a href="#" class="skill-item django" aria-label="Django and DRF skill">
+                        <a href="#" class="skill-item" aria-label="Django and DRF skill">
                             <div class="skill-icon-wrapper">
                                 <i class="fa-solid fa-code"></i>
                             </div>
@@ -495,8 +448,8 @@
                             class="fa-solid fa-envelope"></i></a>
                     <a href="https://t.me/turdialixasanbayev" target="_blank" class="social-icon" title="Telegram"><i
                             class="fa-brands fa-telegram"></i></a>
-                    <a href="https://github.com/turdialixasanbayev" target="_blank" class="social-icon" title="GitHub"><i
-                            class="fa-brands fa-github"></i></a>
+                    <a href="https://github.com/turdialixasanbayev" target="_blank" class="social-icon"
+                        title="GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
 
                 <div class="footer-text">
