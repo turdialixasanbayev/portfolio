@@ -11,9 +11,9 @@ A lightweight, responsive portfolio card presenting who I am, what I work with, 
 ## Sections
 
 - **Profile** — name, role, and avatar
-- **Skills** — Python, Django/DRF
-- **Projects** — featured work with short descriptions and links
-- **Contact** — email, Telegram, and GitHub
+- **Skills** — Python, Django/DRF, Git, PostgreSQL
+- **Projects** — iqtisodiybilim.uz, xasanbayev.uz
+- **Contact** — email, Telegram, GitHub, phone
 - **Footer**
 
 ## Tech Stack
@@ -45,6 +45,12 @@ The layout takes cues from Apple's product and interface design language:
 - A neutral gray-blue palette with a single blue accent
 - A rounded gradient avatar badge
 - A pill-style social bar for contact links
+
+## Preview
+
+![Portfolio Preview](preview.png)
+
+The site features an Apple-inspired design with a modern, minimal aesthetic. It showcases skills, projects, and contact information on a single, responsive card.
 
 ## Running Locally
 
