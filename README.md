@@ -1,4 +1,4 @@
-# Turdiali Xasanbayev — Portfolio
+# Turdiali Khasanbayev — Portfolio
 
 A single-page, Apple-inspired personal business card website built with HTML, CSS, and a touch of JavaScript.
 
@@ -27,9 +27,11 @@ A lightweight, responsive portfolio card presenting who I am, what I work with, 
 
 ```
 portfolio/
-├── index.html
-├── favicon.ico
+├── CNAME
+├── cv.pdf
 ├── favicon-512.png
+├── favicon.ico
+├── index.html
 ├── preview.png
 └── README.md
 ```
@@ -48,7 +50,7 @@ The layout takes cues from Apple's product and interface design language:
 
 ## Preview
 
-![Portfolio Preview](preview.png)
+![Portfolio Preview](/preview.png)
 
 The site features an Apple-inspired design with a modern, minimal aesthetic. It showcases skills, projects, and contact information on a single, responsive card.
 
