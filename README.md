@@ -1,37 +1,41 @@
 # Turdiali Khasanbayev — Portfolio
 
-A single-page, Apple-inspired personal business card website built with HTML, CSS, and a touch of JavaScript.
+A single-page personal portfolio built with HTML, CSS, and a touch of JavaScript, styled after a code editor / terminal window.
 
 🔗 **Live site:** [xasanbayev.uz](https://xasanbayev.uz/)
 
 ## Overview
 
-A lightweight, responsive portfolio card presenting who I am, what I work with, and how to reach me — all on a single scroll-free page. Built with no frameworks and no build step, and deployed as static files via GitHub Pages.
+A lightweight, responsive portfolio card presenting who I am, what I work with, and how to reach me — laid out like an open editor window, from the path breadcrumb at the top down to a live status bar at the bottom. Built with no frameworks and no build step, and deployed as static files via GitHub Pages.
 
 ## Sections
 
-- **Profile** — name, role, and avatar
-- **Skills** — Python, Django/DRF, Git, PostgreSQL
-- **Projects** — iqtisodiybilim.uz, xasanbayev.uz
+- **Path bar** — breadcrumb (`~/turdiali/portfolio.py`) with encoding/read-only badges
+- **Profile** — avatar, name (`$ whoami`), and role
+- **Skills** — Python, Django Framework, Django Rest Framework, Linux, PostgreSQL, Deployment (nginx && gunicorn), Git (GitHub && GitLab), API testing (Unit && Postman && Swagger)
+- **Projects** — iqtisodiybilim.uz, xasanbayev.uz, ReelGo Bot
+- **CV** — resume download
 - **Contact** — email, Telegram, GitHub, phone
-- **Footer**
+- **Status bar** — git branch, Python version, encoding, live clock, footer copyright
 
 ## Tech Stack
 
-- HTML5
-- CSS3 (Flexbox, Grid, CSS custom properties)
-- Vanilla JavaScript (footer year auto-update)
+- HTML5 (semantic sections, accessible labels)
+- CSS3 (Grid, Flexbox, CSS custom properties, `clamp()` for fluid sizing)
+- Vanilla JavaScript (footer year + live status-bar clock)
 - [Font Awesome](https://fontawesome.com/) for icons
+- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) + [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts
 
 ## Project Structure
 
 ```
 portfolio/
+├── apple-touch-icon.png
 ├── CNAME
 ├── cv.pdf
-├── favicon-512.png
 ├── favicon.ico
 ├── index.html
+├── me.jpg
 ├── preview.png
 └── README.md
 ```
@@ -40,19 +44,20 @@ All styles are kept inline within `index.html` — no separate CSS file needed f
 
 ## Design
 
-The layout takes cues from Apple's product and interface design language:
+The layout takes cues from code editors and terminals:
 
-- A clean, centered card with soft rounded corners
-- A subtle, layered shadow for depth
-- A neutral gray-blue palette with a single blue accent
-- A rounded gradient avatar badge
-- A pill-style social bar for contact links
+- A single "editor shell" card: path bar on top, a line-number gutter on wide screens, a status bar on the bottom
+- A dark slate background with amber, teal, and green accents borrowed from a terminal color scheme
+- Monospace (JetBrains Mono) for headings and structural labels, paired with Inter for body text
+- Section headers styled like code (`import skills`, `ls projects/`, `open cv.pdf`, `exec contact.sh`)
+- A fixed-ratio avatar frame with `object-fit: cover`, so any photo crops cleanly without breaking the layout
+- Fully responsive: fluid type via `clamp()`, grid collapses to a single column on mobile, gutter hides below 860px, visible focus states, and reduced-motion is respected
 
 ## Preview
 
 ![Portfolio Preview](/preview.png)
 
-The site features an Apple-inspired design with a modern, minimal aesthetic. It showcases skills, projects, and contact information on a single, responsive card.
+The site features a code-editor-inspired design with a dark, minimal aesthetic. It showcases skills, projects, and contact information inside a single, responsive "editor window."
 
 ## Running Locally
 

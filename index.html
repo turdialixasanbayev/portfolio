@@ -12,7 +12,7 @@
 
     <meta name="robots" content="index, follow">
 
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#0b0f14">
 
     <link rel="icon" href="/favicon.ico">
 
@@ -42,181 +42,336 @@
     <meta name="twitter:description" content="Software engineer portfolio. Django, REST API.">
     <meta name="twitter:image" content="https://xasanbayev.uz/preview.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* ============================================================
+           TOKENS — "engineer's terminal" system
+           ============================================================ */
         :root {
-            /* Single accent color + single neutral, used consistently everywhere */
-            --accent: #2563eb;
-            --accent-soft: #eff6ff;
-            --accent-dark: #1d4ed8;
+            --bg: #0b0f14;
+            --panel: #10161d;
+            --panel-2: #141c25;
+            --border: #232e3a;
+            --border-soft: #1a2530;
 
-            --neutral-50: #f8fafc;
-            --neutral-100: #f1f5f9;
-            --neutral-200: #e2e8f0;
-            --neutral-400: #94a3b8;
-            --neutral-500: #64748b;
-            --neutral-900: #1e293b;
+            --text: #e7edf3;
+            --text-dim: #8493a3;
+            --text-faint: #4d5a68;
 
-            --card-bg: #ffffff;
-            --shadow: 0 20px 45px -22px rgba(37, 99, 235, 0.22), 0 6px 16px rgba(15, 23, 42, 0.05);
+            --amber: #ffb454;
+            --teal: #5ee6c8;
+            --green: #8fd14f;
+            --blue: #6fb1ff;
+
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+            --radius: 12px;
+            --radius-sm: 8px;
+
+            --gutter-w: 46px;
+            --shell-max: 980px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            background: linear-gradient(150deg, var(--neutral-50), #eef2fb);
+            background:
+                radial-gradient(700px 420px at 12% -10%, rgba(94, 230, 200, 0.07), transparent 60%),
+                radial-gradient(600px 380px at 100% 10%, rgba(255, 180, 84, 0.06), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            padding: clamp(14px, 3.4vw, 36px);
+            line-height: 1.5;
         }
 
-        /* Subtle single-color decorative blobs (accent only, low opacity) */
-        body::before,
-        body::after {
-            content: "";
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            background: rgba(37, 99, 235, 0.08);
+        a {
+            color: inherit;
         }
 
-        body::before {
-            width: 160px;
-            height: 160px;
-            top: 4%;
-            left: 4%;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        body::after {
-            width: 180px;
-            height: 180px;
-            bottom: 4%;
-            right: 4%;
+        :focus-visible {
+            outline: 2px solid var(--teal);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
 
-        .page-shell {
-            position: relative;
-            z-index: 1;
-            max-width: 940px;
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
+        /* ============================================================
+           SHELL — the whole page reads as one open editor window
+           ============================================================ */
+        .editor-shell {
+            max-width: var(--shell-max);
             margin: 0 auto;
-        }
-
-        .portfolio-card {
-            position: relative;
-            background: var(--card-bg);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
             overflow: hidden;
-            padding: 26px;
-            display: grid;
-            gap: 16px;
-            border: 1px solid var(--neutral-200);
+            box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
         }
 
-        .profile-section {
-            text-align: center;
-            padding: 4px 0 4px;
-        }
-
-        .avatar-container {
-            width: 92px;
-            height: 92px;
-            background: linear-gradient(135deg, #60a5fa, var(--accent) 60%, var(--accent-dark));
-            border-radius: 26px;
+        /* breadcrumb / path bar */
+        .path-bar {
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 30px;
-            font-weight: 800;
-            margin: 0 auto 14px auto;
-            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+            gap: 10px;
+            padding: 12px clamp(14px, 3vw, 26px);
+            background: var(--panel-2);
+            border-bottom: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-faint);
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
-        .profile-section h1 {
-            color: var(--neutral-900);
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: -0.03em;
+        .path-bar .crumb-accent {
+            color: var(--teal);
         }
 
-        .profile-section p {
-            color: var(--neutral-500);
-            font-size: 14px;
-            font-weight: 700;
+        .path-bar .sep {
+            color: var(--text-faint);
         }
 
-        .content-grid {
+        .path-bar .file {
+            color: var(--text-dim);
+        }
+
+        .path-bar .badges {
+            margin-left: auto;
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .kbd-badge {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.3px;
+            color: var(--text-faint);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 3px 7px;
+            background: var(--bg);
+        }
+
+        /* body of the editor: gutter + content */
+        .editor-body {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            grid-template-columns: var(--gutter-w) 1fr;
+        }
+
+        .gutter {
+            display: none;
+            border-right: 1px solid var(--border-soft);
+            padding-top: 34px;
+            position: relative;
+        }
+
+        .gutter .line-no {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: right;
+            padding-right: 12px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        @media (min-width: 860px) {
+            .gutter {
+                display: block;
+            }
+        }
+
+        .content-col {
+            min-width: 0;
+            padding: clamp(20px, 4vw, 36px);
+            display: grid;
+            gap: clamp(18px, 3vw, 26px);
+        }
+
+        /* generic block used for every "file section" */
+        .block {
+            position: relative;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-faint);
+            margin-bottom: 12px;
+            text-transform: lowercase;
+            letter-spacing: 0.3px;
+        }
+
+        .eyebrow .kw {
+            color: var(--teal);
+        }
+
+        .eyebrow .cmt {
+            color: var(--text-faint);
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: clamp(16px, 3vw, 28px);
+            align-items: center;
+            background: var(--panel-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(18px, 3.4vw, 28px);
+        }
+
+        .avatar {
+            width: clamp(76px, 16vw, 112px);
+            height: clamp(96px, 20vw, 140px);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: linear-gradient(155deg, #16212b, #0d141b);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .avatar .avatar-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(22px, 5vw, 32px);
+            color: var(--teal);
+            background: linear-gradient(155deg, rgba(94, 230, 200, 0.14), rgba(255, 180, 84, 0.08));
+        }
+
+        .avatar.is-fallback img {
+            display: none;
+        }
+
+        .avatar.is-fallback .avatar-fallback {
+            display: flex;
+        }
+
+        .hero-text .prompt-line {
+            font-family: var(--font-mono);
+            font-size: clamp(12px, 2.4vw, 14px);
+            color: var(--text-faint);
+        }
+
+        .hero-text .prompt-line .prompt-sym {
+            color: var(--green);
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: clamp(22px, 4.6vw, 32px);
+            letter-spacing: -0.01em;
+            margin: 6px 0 6px;
+            color: var(--text);
+        }
+
+        .hero-text .role-line {
+            font-family: var(--font-mono);
+            font-size: clamp(12px, 2.6vw, 14px);
+            color: var(--text-dim);
+        }
+
+        .hero-text .role-line .hash {
+            color: var(--amber);
+        }
+
+        /* ============================================================
+           TWO-UP GRID: skills.md / projects
+           ============================================================ */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(16px, 3vw, 22px);
+        }
+
+        @media (min-width: 720px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1.15fr;
+                align-items: start;
+            }
         }
 
         .panel {
-            background: var(--card-bg);
-            border: 1px solid var(--neutral-200);
-            border-radius: 18px;
-            padding: 16px;
+            background: var(--panel-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: clamp(16px, 2.6vw, 22px);
         }
 
-        .section-title {
-            color: var(--neutral-400);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .skills-grid {
+        /* skills list, styled as terminal output */
+        .skills-list {
+            list-style: none;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px;
+            font-family: var(--font-mono);
+            font-size: clamp(12.5px, 2.6vw, 14px);
+        }
+
+        .skills-list li {
+            display: flex;
             gap: 10px;
+            align-items: flex-start;
+            color: var(--text);
         }
 
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--neutral-900);
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 14px;
-            padding: 12px 10px;
-            background: var(--neutral-50);
-            border: 1px solid var(--neutral-200);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
-        }
-
-        /* All skill icons share the single accent color now */
-        .skill-icon-wrapper {
-            width: 36px;
-            height: 36px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .skills-list li::before {
+            content: "\2022";
+            color: var(--teal);
             font-size: 16px;
-            background-color: var(--accent-soft);
-            color: var(--accent);
+            line-height: 1.1;
+            flex-shrink: 0;
         }
 
+        /* projects list */
         .projects-list {
             display: grid;
             gap: 10px;
@@ -226,157 +381,152 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 12px;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 14px;
-            background: var(--neutral-50);
-            border: 1px solid var(--neutral-200);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            padding: 12px 13px;
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            border: 1px solid var(--border-soft);
+            transition: transform 0.15s ease, border-color 0.15s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+            transform: translateX(2px);
+            border-color: var(--teal);
         }
 
         .project-left {
             display: flex;
             align-items: center;
             gap: 12px;
+            min-width: 0;
         }
 
-        .project-icon-wrapper {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+        .project-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 17px;
-            background: var(--accent-soft);
-            color: var(--accent);
+            justify-content: center;
+            font-size: 15px;
+            background: rgba(94, 230, 200, 0.09);
+            color: var(--teal);
             flex-shrink: 0;
         }
 
         .project-info h3 {
-            color: var(--neutral-900);
-            font-size: 14px;
-            font-weight: 800;
-            margin-bottom: 2px;
+            font-family: var(--font-mono);
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .project-info p {
-            color: var(--neutral-500);
             font-size: 12px;
-            font-weight: 600;
+            color: var(--text-dim);
+            margin-top: 2px;
         }
 
-        .external-link-icon {
-            color: var(--neutral-400);
-            font-size: 13px;
+        .ext-icon {
+            color: var(--text-faint);
+            font-size: 12px;
             flex-shrink: 0;
         }
 
-        .contact-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding-top: 2px;
-        }
-
-        .social-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            background: var(--neutral-50);
-            border: 1px solid var(--neutral-200);
-            border-radius: 999px;
-            padding: 6px 10px;
-        }
-
-        .social-icon {
-            width: 34px;
-            height: 34px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--neutral-500);
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: background-color 0.15s, color 0.15s;
-        }
-
-        .social-icon:hover {
-            background-color: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        .footer-text {
-            color: var(--neutral-400);
-            font-size: 11px;
-            letter-spacing: 0.3px;
-            font-weight: 700;
-        }
-
-        .resume-panel {
-            grid-column: 1 / -1;
-        }
-
-        .resume-download {
+        /* ============================================================
+           CV PANEL
+           ============================================================ */
+        .cv-download {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 12px;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 14px;
-            background: var(--neutral-50);
-            border: 1px solid var(--neutral-200);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            padding: 13px 15px;
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            border: 1px solid var(--border-soft);
+            transition: transform 0.15s ease, border-color 0.15s ease;
         }
 
-        .resume-download:hover {
+        .cv-download:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+            border-color: var(--amber);
         }
 
-        .resume-info h3 {
-            color: var(--neutral-900);
-            font-size: 14px;
-            font-weight: 800;
-            margin-bottom: 2px;
+        .cv-download .project-icon {
+            background: rgba(255, 180, 84, 0.1);
+            color: var(--amber);
         }
 
-        .resume-info p {
-            color: var(--neutral-500);
-            font-size: 12px;
-            font-weight: 600;
+        /* ============================================================
+           CONTACT
+           ============================================================ */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        @media (max-width: 720px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
+        .contact-chip {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--bg);
+            border: 1px solid var(--border-soft);
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--text-dim);
+            transition: border-color 0.15s ease, color 0.15s ease;
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 12px;
-            }
+        .contact-chip:hover {
+            border-color: var(--teal);
+            color: var(--text);
+        }
 
-            .portfolio-card {
-                padding: 18px 14px;
-                border-radius: 22px;
-                gap: 12px;
-            }
+        .contact-chip i {
+            color: var(--teal);
+            font-size: 13px;
+        }
 
-            .skills-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+        /* ============================================================
+           STATUS BAR (footer)
+           ============================================================ */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 18px);
+            padding: 10px clamp(14px, 3vw, 26px);
+            background: var(--panel-2);
+            border-top: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .status-bar .branch {
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-bar .dot {
+            color: var(--border);
+        }
+
+        .status-bar .push {
+            margin-left: auto;
         }
     </style>
 
@@ -384,133 +534,165 @@
 
 <body>
 
-    <main class="page-shell">
-        <article class="portfolio-card">
-            <header class="profile-section">
-                <div class="avatar-container">TKH</div>
-                <h1>Turdiali Khasanbayev</h1>
-                <p>Software Engineer</p>
-            </header>
+    <div class="editor-shell">
 
-            <section class="content-grid">
-                <section class="panel" aria-labelledby="skills-heading">
-                    <h2 class="section-title" id="skills-heading">Skills</h2>
-                    <div class="skills-grid">
-                        <a href="#" class="skill-item" aria-label="Python skill">
-                            <div class="skill-icon-wrapper">
-                                <i class="fa-brands fa-python"></i>
+        <div class="path-bar">
+            <span class="crumb-accent">~</span>
+            <span class="sep">/</span>
+            <span>turdiali</span>
+            <span class="sep">/</span>
+            <span class="file">portfolio.py</span>
+            <div class="badges">
+                <span class="kbd-badge">UTF-8</span>
+                <span class="kbd-badge">read-only</span>
+            </div>
+        </div>
+
+        <div class="editor-body">
+            <div class="gutter" aria-hidden="true">
+                <span class="line-no" style="top:0;">01</span>
+                <span class="line-no" style="top:190px;">18</span>
+                <span class="line-no" style="top:420px;">34</span>
+                <span class="line-no" style="top:640px;">52</span>
+                <span class="line-no" style="top:760px;">61</span>
+            </div>
+
+            <main class="content-col">
+
+                <!-- PROFILE -->
+                <section class="block hero" aria-labelledby="profile-heading">
+                    <div class="avatar" id="avatar">
+                        <img src="/me.jpg" alt="Turdiali Khasanbayev"
+                            onerror="this.parentElement.classList.add('is-fallback')">
+                        <div class="avatar-fallback"><i class="fa-solid fa-user"></i></div>
+                    </div>
+                    <div class="hero-text">
+                        <p class="prompt-line"><span class="prompt-sym">$</span> whoami</p>
+                        <h1 id="profile-heading">Turdiali Khasanbayev</h1>
+                        <p class="role-line"><span class="hash">#</span> Software Engineer</p>
+                    </div>
+                </section>
+
+                <!-- SKILLS + PROJECTS -->
+                <div class="grid-2">
+                    <section class="block panel" aria-labelledby="skills-heading">
+                        <p class="eyebrow"><span class="kw">import</span> <span id="skills-heading">skills</span>
+                            <span class="cmt">// skills.md</span>
+                        </p>
+                        <ul class="skills-list">
+                            <li>Python</li>
+                            <li>Django Framework</li>
+                            <li>Django Rest Framework</li>
+                            <li>Linux</li>
+                            <li>PostgreSQL</li>
+                            <li>Deployment (nginx &amp;&amp; gunicorn)</li>
+                            <li>Git (GitHub &amp;&amp; GitLab)</li>
+                            <li>API testing (Unit &amp;&amp; Postman &amp;&amp; Swagger)</li>
+                        </ul>
+                    </section>
+
+                    <section class="block panel" aria-labelledby="projects-heading">
+                        <p class="eyebrow"><span class="kw">ls</span> <span id="projects-heading">projects/</span>
+                            <span class="cmt">// 3 items</span>
+                        </p>
+                        <div class="projects-list">
+                            <a href="https://iqtisodiybilim.uz" target="_blank" class="project-item">
+                                <div class="project-left">
+                                    <div class="project-icon"><i class="fa-solid fa-file-lines"></i></div>
+                                    <div class="project-info">
+                                        <h3>iqtisodiybilim.uz</h3>
+                                        <p>Django-powered blog for economics articles and educational content</p>
+                                    </div>
+                                </div>
+                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                            </a>
+                            <a href="https://xasanbayev.uz" target="_blank" class="project-item">
+                                <div class="project-left">
+                                    <div class="project-icon"><i class="fa-solid fa-user"></i></div>
+                                    <div class="project-info">
+                                        <h3>xasanbayev.uz</h3>
+                                        <p>Personal developer portfolio built with Django</p>
+                                    </div>
+                                </div>
+                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                            </a>
+                            <a href="https://t.me/reelgo_bot" target="_blank" class="project-item">
+                                <div class="project-left">
+                                    <div class="project-icon"><i class="fa-brands fa-instagram"></i></div>
+                                    <div class="project-info">
+                                        <h3>ReelGo Bot</h3>
+                                        <p>&#9889; Fast & easy Instagram Reels, Video and Photo Downloader Bot!</p>
+                                    </div>
+                                </div>
+                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- CV -->
+                <section class="block panel" aria-labelledby="cv-heading">
+                    <p class="eyebrow"><span class="kw">open</span> <span id="cv-heading">cv.pdf</span></p>
+                    <a href="/cv.pdf" class="cv-download" download aria-label="Download resume PDF">
+                        <div class="project-left">
+                            <div class="project-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+                            <div class="project-info">
+                                <h3>Download CV</h3>
+                                <p>PDF file</p>
                             </div>
-                            <span>Python</span>
+                        </div>
+                        <div class="ext-icon"><i class="fa-solid fa-download"></i></div>
+                    </a>
+                </section>
+
+                <!-- CONTACT -->
+                <section class="block panel" aria-labelledby="contact-heading">
+                    <p class="eyebrow"><span class="kw">exec</span> <span id="contact-heading">contact.sh</span></p>
+                    <div class="contact-row" aria-label="Social links">
+                        <a href="mailto:xasanbayevturdiali7@gmail.com" class="contact-chip">
+                            <i class="fa-solid fa-envelope"></i> Email
                         </a>
-                        <a href="#" class="skill-item" aria-label="Django and DRF skill">
-                            <div class="skill-icon-wrapper">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
-                            <span>Django/DRF</span>
+                        <a href="https://t.me/turdialixasanbayev" target="_blank" class="contact-chip">
+                            <i class="fa-brands fa-telegram"></i> Telegram
                         </a>
-                        <a href="#" class="skill-item" aria-label="Git skill">
-                            <div class="skill-icon-wrapper">
-                                <i class="fa-brands fa-git-alt"></i>
-                            </div>
-                            <span>Git</span>
+                        <a href="https://github.com/turdialixasanbayev" target="_blank" class="contact-chip">
+                            <i class="fa-brands fa-github"></i> GitHub
                         </a>
-                        <a href="#" class="skill-item" aria-label="PostgreSQL skill">
-                            <div class="skill-icon-wrapper">
-                                <i class="fa-solid fa-database"></i>
-                            </div>
-                            <span>PostgreSQL</span>
+                        <a href="tel:+998884162060" class="contact-chip">
+                            <i class="fa-solid fa-phone"></i> Phone
                         </a>
                     </div>
                 </section>
 
-                <section class="panel" aria-labelledby="projects-heading">
-                    <h2 class="section-title" id="projects-heading">Projects</h2>
-                    <div class="projects-list">
-                        <a href="https://iqtisodiybilim.uz" target="_blank" class="project-item">
-                            <div class="project-left">
-                                <div class="project-icon-wrapper">
-                                    <i class="fa-solid fa-file-lines"></i>
-                                </div>
-                                <div class="project-info">
-                                    <h3>iqtisodiybilim.uz</h3>
-                                    <p>Economics blog and articles platform</p>
-                                </div>
-                            </div>
-                            <div class="external-link-icon">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </div>
-                        </a>
-                        <a href="https://xasanbayev.uz" target="_blank" class="project-item">
-                            <div class="project-left">
-                                <div class="project-icon-wrapper">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                                <div class="project-info">
-                                    <h3>xasanbayev.uz</h3>
-                                    <p>Personal portfolio site</p>
-                                </div>
-                            </div>
-                            <div class="external-link-icon">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </div>
-                        </a>
-                        <a href="https://t.me/reelgo_bot" target="_blank" class="project-item">
-                            <div class="project-left">
-                                <div class="project-icon-wrapper">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                                <div class="project-info">
-                                    <h3>ReelGo Bot</h3>
-                                    <p>⚡️ Fast & easy Instagram Reels, Video and Photo Downloader Bot!</p>
-                                </div>
-                            </div>
-                            <div class="external-link-icon">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-            </section>
+            </main>
+        </div>
 
-            <section class="panel resume-panel" aria-labelledby="resume-heading">
-                <h2 class="section-title" id="resume-heading">CV</h2>
-                <a href="/cv.pdf" class="resume-download" download aria-label="Download resume PDF">
-                    <div class="project-left">
-                        <div class="project-icon-wrapper">
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                        </div>
-                        <div class="resume-info">
-                            <h3>Download CV</h3>
-                            <p>PDF file</p>
-                        </div>
-                    </div>
-                    <div class="external-link-icon">
-                        <i class="fa-solid fa-download"></i>
-                    </div>
-                </a>
-            </section>
+        <div class="status-bar">
+            <span class="branch"><i class="fa-solid fa-code-branch"></i> main</span>
+            <span class="dot">&bull;</span>
+            <span>Python 3.14</span>
+            <span class="dot">&bull;</span>
+            <span>LF</span>
+            <span class="dot">&bull;</span>
+            <span id="clock"></span>
+            <span class="push">&copy; <span id="year"></span> Turdiali Khasanbayev</span>
+        </div>
 
-            <footer class="contact-section">
-                <h2 class="section-title" style="text-align: center; margin: 0;">Contact</h2>
-                <div class="social-bar" aria-label="Social links">
-                    <a href="mailto:xasanbayevturdiali7@gmail.com" class="social-icon" title="Email"><i
-                            class="fa-solid fa-envelope"></i></a>
-                    <a href="https://t.me/turdialixasanbayev" target="_blank" class="social-icon" title="Telegram"><i
-                            class="fa-brands fa-telegram"></i></a>
-                    <a href="https://github.com/turdialixasanbayev" target="_blank" class="social-icon"
-                        title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="tel:+998884162060" class="social-icon" title="Phone"><i class="fa-solid fa-phone"></i></a>
-                </div>
-
-                <div class="footer-text">
-                    &copy; <span id="year"></span> Turdiali Khasanbayev
-                </div>
-            </footer>
-        </article>
-    </main>
+    </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const clockEl = document.getElementById('clock');
+        function tick() {
+            const now = new Date();
+            const hh = String(now.getHours()).padStart(2, '0');
+            const mm = String(now.getMinutes()).padStart(2, '0');
+            const ss = String(now.getSeconds()).padStart(2, '0');
+            clockEl.textContent = hh + ':' + mm + ':' + ss;
+        }
+        tick();
+        setInterval(tick, 1000);
     </script>
 </body>
 
