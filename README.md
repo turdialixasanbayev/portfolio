@@ -1,30 +1,30 @@
 # Turdiali Khasanbayev — Portfolio
 
-A single-page personal portfolio built with HTML, CSS, and a touch of JavaScript, styled after a code editor / terminal window.
+A single-page personal portfolio built with HTML, CSS, and a touch of JavaScript, styled as a minimalist, resume-style document.
 
 🔗 **Live site:** [xasanbayev.uz](https://xasanbayev.uz/)
 
 ## Overview
 
-A lightweight, responsive portfolio card presenting who I am, what I work with, and how to reach me — laid out like an open editor window, from the path breadcrumb at the top down to a live status bar at the bottom. Built with no frameworks and no build step, and deployed as static files via GitHub Pages.
+A lightweight, responsive one-pager presenting who I am, what I work with, and how to reach me — laid out like a printed résumé: a single centered column, hairline rules between sections, and no decoration beyond what the content needs. Built with no frameworks and no build step, and deployed as static files via GitHub Pages.
 
 ## Sections
 
-- **Path bar** — breadcrumb (`~/turdiali/portfolio.py`) with encoding/read-only badges
-- **Profile** — avatar, name (`$ whoami`), and role
-- **Skills** — Python, Django Framework, Django Rest Framework, Linux, PostgreSQL, Deployment (nginx && gunicorn), Git (GitHub && GitLab), API testing (Unit && Postman && Swagger)
-- **Projects** — iqtisodiybilim.uz, xasanbayev.uz, ReelGo Bot
-- **CV** — resume download
-- **Contact** — email, Telegram, GitHub, phone
-- **Status bar** — git branch, Python version, encoding, live clock, footer copyright
+- **Identity** — name, role, location, and contact links (email, phone, website, GitHub, Telegram)
+- **Summary** — a short professional summary
+- **Technical Skills** — grouped by category: Languages, Backend & Frameworks, Databases, Infrastructure & DevOps, Tools & Version Control, Engineering Principles
+- **Projects** — iqtisodiybilim.uz, ReelGo Bot, xasanbayev.uz
+- **Education** — university and program
+- **Practical Work & Certifications** — course, self-study, and practice entries
+- **Resume** — CV download link
+- **Footer** — copyright and location
 
 ## Tech Stack
 
 - HTML5 (semantic sections, accessible labels)
 - CSS3 (Grid, Flexbox, CSS custom properties, `clamp()` for fluid sizing)
-- Vanilla JavaScript (footer year + live status-bar clock)
-- [Font Awesome](https://fontawesome.com/) for icons
-- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) + [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts
+- Vanilla JavaScript (footer year only)
+- [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4), [Inter](https://fonts.google.com/specimen/Inter), and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts
 
 ## Project Structure
 
@@ -35,7 +35,6 @@ portfolio/
 ├── cv.pdf
 ├── favicon.ico
 ├── index.html
-├── me.jpg
 ├── preview.png
 └── README.md
 ```
@@ -44,20 +43,13 @@ All styles are kept inline within `index.html` — no separate CSS file needed f
 
 ## Design
 
-The layout takes cues from code editors and terminals:
+The layout is built as a plain, professional document rather than a themed interface:
 
-- A single "editor shell" card: path bar on top, a line-number gutter on wide screens, a status bar on the bottom
-- A dark slate background with amber, teal, and green accents borrowed from a terminal color scheme
-- Monospace (JetBrains Mono) for headings and structural labels, paired with Inter for body text
-- Section headers styled like code (`import skills`, `ls projects/`, `open cv.pdf`, `exec contact.sh`)
-- A fixed-ratio avatar frame with `object-fit: cover`, so any photo crops cleanly without breaking the layout
-- Fully responsive: fluid type via `clamp()`, grid collapses to a single column on mobile, gutter hides below 860px, visible focus states, and reduced-motion is respected
-
-## Preview
-
-![Portfolio Preview](/preview.png)
-
-The site features a code-editor-inspired design with a dark, minimal aesthetic. It showcases skills, projects, and contact information inside a single, responsive "editor window."
+- A single centered column (`~700px` measure), generous whitespace, and hairline dividers between sections — no cards, no shadows, no border-radius
+- Pure white background with a grayscale palette only — no accent color, no gradients
+- A serif display face (Source Serif 4) for the name and section titles, paired with Inter for body text and JetBrains Mono for labels, roles, and metadata
+- No animation beyond a subtle hover state on links; `prefers-reduced-motion` is respected
+- Fully responsive: fluid type via `clamp()`, a two-column skills grid that collapses to one column on mobile, and visible focus states throughout
 
 ## Running Locally
 

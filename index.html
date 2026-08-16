@@ -3,81 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Turdiali Khasanbayev | Python Software Engineer</title>
+    <title>Turdiali Khasanbayev — Python / Django Software Engineer</title>
 
-    <link rel="canonical" href="https://xasanbayev.uz">
+    <meta name="description"
+        content="Turdiali Khasanbayev is a backend-focused Software Engineer specializing in Python, Django and REST API development, PostgreSQL database design, and Linux server deployment with Nginx and Gunicorn.">
+    <meta name="keywords"
+        content="Turdiali Khasanbayev, Python developer, Django developer, backend engineer, REST API, PostgreSQL, Nginx, Gunicorn, Uzbekistan software engineer">
+    <meta name="author" content="Turdiali Khasanbayev">
 
     <meta name="robots" content="index, follow">
 
-    <meta name="theme-color" content="#0b0f14">
+    <link rel="canonical" href="https://xasanbayev.uz">
 
-    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <meta name="author" content="Turdiali Khasanbayev">
-
-    <meta name="description"
-        content="Turdiali Khasanbayev - Python Software Engineer. Engineer working with Django, REST API. Check out his portfolio and projects">
-
-    <meta name="keywords"
-        content="Turdiali Khasanbayev, Python engineer, Django engineer, Software engineer Uzbekistan, REST API, portfolio, web engineer">
-
-    <meta property="og:title" content="Turdiali Khasanbayev | Python Software Engineer">
-    <meta property="og:description" content="Django software engineering. Portfolio and projects.">
+    <meta property="og:title" content="Turdiali Khasanbayev — Python / Django Software Engineer">
+    <meta property="og:description"
+        content="Backend-focused Software Engineer building reliable, scalable web applications and REST APIs with Python, Django and PostgreSQL.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="xasanbayev.uz">
     <meta property="og:url" content="https://xasanbayev.uz">
-    <meta property="og:image" content="https://xasanbayev.uz/preview.png">
     <meta property="og:locale" content="en_US">
 
     <link rel="alternate" hreflang="en" href="https://xasanbayev.uz">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Turdiali Khasanbayev | Python Software Engineer">
-    <meta name="twitter:site" content="xasanbayev.uz">
-    <meta name="twitter:description" content="Software engineer portfolio. Django, REST API.">
-    <meta name="twitter:image" content="https://xasanbayev.uz/preview.png">
+    <meta name="twitter:title" content="Turdiali Khasanbayev — Python / Django Software Engineer">
+    <meta name="twitter:description"
+        content="Backend-focused Software Engineer building reliable, scalable web applications and REST APIs with Python, Django and PostgreSQL.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* ============================================================
-           TOKENS — "engineer's terminal" system
-           ============================================================ */
         :root {
-            --bg: #0b0f14;
-            --panel: #10161d;
-            --panel-2: #141c25;
-            --border: #232e3a;
-            --border-soft: #1a2530;
+            --bg: #ffffff;
+            --ink: #111111;
+            --ink-soft: #55585c;
+            --ink-faint: #9a9a9a;
+            --line: #e3e3e1;
+            --line-strong: #111111;
 
-            --text: #e7edf3;
-            --text-dim: #8493a3;
-            --text-faint: #4d5a68;
-
-            --amber: #ffb454;
-            --teal: #5ee6c8;
-            --green: #8fd14f;
-            --blue: #6fb1ff;
-
+            --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-            --radius: 12px;
-            --radius-sm: 8px;
-
-            --gutter-w: 46px;
-            --shell-max: 980px;
+            --measure: 700px;
         }
 
         * {
@@ -91,608 +69,456 @@
         }
 
         body {
-            background:
-                radial-gradient(700px 420px at 12% -10%, rgba(94, 230, 200, 0.07), transparent 60%),
-                radial-gradient(600px 380px at 100% 10%, rgba(255, 180, 84, 0.06), transparent 55%),
-                var(--bg);
-            color: var(--text);
-            font-family: var(--font-sans);
-            min-height: 100vh;
-            padding: clamp(14px, 3.4vw, 36px);
-            line-height: 1.5;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
             color: inherit;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
         :focus-visible {
-            outline: 2px solid var(--teal);
+            outline: 2px solid var(--ink);
             outline-offset: 3px;
-            border-radius: 4px;
         }
 
         @media (prefers-reduced-motion: reduce) {
             * {
-                animation-duration: 0.001ms !important;
-                transition-duration: 0.001ms !important;
+                transition: none !important;
+                animation: none !important;
             }
         }
 
-        /* ============================================================
-           SHELL — the whole page reads as one open editor window
-           ============================================================ */
-        .editor-shell {
-            max-width: var(--shell-max);
+        .page {
+            max-width: var(--measure);
             margin: 0 auto;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
+            padding: clamp(48px, 9vw, 96px) clamp(20px, 5vw, 24px) 64px;
         }
 
-        /* breadcrumb / path bar */
-        .path-bar {
+        /* ---------------------------------- header ---------------------------------- */
+
+        header.identity {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px clamp(14px, 3vw, 26px);
-            background: var(--panel-2);
-            border-bottom: 1px solid var(--border);
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-faint);
-            overflow-x: auto;
-            white-space: nowrap;
+            flex-direction: column;
+            gap: 18px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--line-strong);
         }
 
-        .path-bar .crumb-accent {
-            color: var(--teal);
-        }
-
-        .path-bar .sep {
-            color: var(--text-faint);
-        }
-
-        .path-bar .file {
-            color: var(--text-dim);
-        }
-
-        .path-bar .badges {
-            margin-left: auto;
+        .identity-top {
             display: flex;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-
-        .kbd-badge {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 0.3px;
-            color: var(--text-faint);
-            border: 1px solid var(--border);
-            border-radius: 5px;
-            padding: 3px 7px;
-            background: var(--bg);
-        }
-
-        /* body of the editor: gutter + content */
-        .editor-body {
-            display: grid;
-            grid-template-columns: var(--gutter-w) 1fr;
-        }
-
-        .gutter {
-            display: none;
-            border-right: 1px solid var(--border-soft);
-            padding-top: 34px;
-            position: relative;
-        }
-
-        .gutter .line-no {
-            position: absolute;
-            left: 0;
-            right: 0;
-            text-align: right;
-            padding-right: 12px;
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-faint);
-        }
-
-        @media (min-width: 860px) {
-            .gutter {
-                display: block;
-            }
-        }
-
-        .content-col {
-            min-width: 0;
-            padding: clamp(20px, 4vw, 36px);
-            display: grid;
-            gap: clamp(18px, 3vw, 26px);
-        }
-
-        /* generic block used for every "file section" */
-        .block {
-            position: relative;
-        }
-
-        .eyebrow {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--text-faint);
-            margin-bottom: 12px;
-            text-transform: lowercase;
-            letter-spacing: 0.3px;
-        }
-
-        .eyebrow .kw {
-            color: var(--teal);
-        }
-
-        .eyebrow .cmt {
-            color: var(--text-faint);
-        }
-
-        /* ============================================================
-           HERO
-           ============================================================ */
-        .hero {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: clamp(16px, 3vw, 28px);
-            align-items: center;
-            background: var(--panel-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(18px, 3.4vw, 28px);
-        }
-
-        .avatar {
-            width: clamp(76px, 16vw, 112px);
-            height: clamp(96px, 20vw, 140px);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: linear-gradient(155deg, #16212b, #0d141b);
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .avatar .avatar-fallback {
-            display: none;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(22px, 5vw, 32px);
-            color: var(--teal);
-            background: linear-gradient(155deg, rgba(94, 230, 200, 0.14), rgba(255, 180, 84, 0.08));
-        }
-
-        .avatar.is-fallback img {
-            display: none;
-        }
-
-        .avatar.is-fallback .avatar-fallback {
-            display: flex;
-        }
-
-        .hero-text .prompt-line {
-            font-family: var(--font-mono);
-            font-size: clamp(12px, 2.4vw, 14px);
-            color: var(--text-faint);
-        }
-
-        .hero-text .prompt-line .prompt-sym {
-            color: var(--green);
-        }
-
-        .hero-text h1 {
-            font-family: var(--font-mono);
-            font-weight: 800;
-            font-size: clamp(22px, 4.6vw, 32px);
-            letter-spacing: -0.01em;
-            margin: 6px 0 6px;
-            color: var(--text);
-        }
-
-        .hero-text .role-line {
-            font-family: var(--font-mono);
-            font-size: clamp(12px, 2.6vw, 14px);
-            color: var(--text-dim);
-        }
-
-        .hero-text .role-line .hash {
-            color: var(--amber);
-        }
-
-        /* ============================================================
-           TWO-UP GRID: skills.md / projects
-           ============================================================ */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: clamp(16px, 3vw, 22px);
-        }
-
-        @media (min-width: 720px) {
-            .grid-2 {
-                grid-template-columns: 1fr 1.15fr;
-                align-items: start;
-            }
-        }
-
-        .panel {
-            background: var(--panel-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: clamp(16px, 2.6vw, 22px);
-        }
-
-        /* skills list, styled as terminal output */
-        .skills-list {
-            list-style: none;
-            display: grid;
-            gap: 9px;
-            font-family: var(--font-mono);
-            font-size: clamp(12.5px, 2.6vw, 14px);
-        }
-
-        .skills-list li {
-            display: flex;
-            gap: 10px;
             align-items: flex-start;
-            color: var(--text);
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .skills-list li::before {
-            content: "\2022";
-            color: var(--teal);
-            font-size: 16px;
+        .identity-name h1 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(30px, 5.4vw, 42px);
+            letter-spacing: -0.01em;
             line-height: 1.1;
-            flex-shrink: 0;
         }
 
-        /* projects list */
-        .projects-list {
-            display: grid;
-            gap: 10px;
-        }
-
-        .project-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            text-decoration: none;
-            padding: 12px 13px;
-            border-radius: var(--radius-sm);
-            background: var(--bg);
-            border: 1px solid var(--border-soft);
-            transition: transform 0.15s ease, border-color 0.15s ease;
-        }
-
-        .project-item:hover {
-            transform: translateX(2px);
-            border-color: var(--teal);
-        }
-
-        .project-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 0;
-        }
-
-        .project-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            background: rgba(94, 230, 200, 0.09);
-            color: var(--teal);
-            flex-shrink: 0;
-        }
-
-        .project-info h3 {
+        .identity-role {
+            margin-top: 8px;
             font-family: var(--font-mono);
-            font-size: 13.5px;
-            font-weight: 700;
-            color: var(--text);
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-soft);
+        }
+
+        .identity-location {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            color: var(--ink-faint);
+            text-align: right;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
-        .project-info p {
-            font-size: 12px;
-            color: var(--text-dim);
-            margin-top: 2px;
-        }
-
-        .ext-icon {
-            color: var(--text-faint);
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        /* ============================================================
-           CV PANEL
-           ============================================================ */
-        .cv-download {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            text-decoration: none;
-            padding: 13px 15px;
-            border-radius: var(--radius-sm);
-            background: var(--bg);
-            border: 1px solid var(--border-soft);
-            transition: transform 0.15s ease, border-color 0.15s ease;
-        }
-
-        .cv-download:hover {
-            transform: translateY(-2px);
-            border-color: var(--amber);
-        }
-
-        .cv-download .project-icon {
-            background: rgba(255, 180, 84, 0.1);
-            color: var(--amber);
-        }
-
-        /* ============================================================
-           CONTACT
-           ============================================================ */
         .contact-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .contact-chip {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            background: var(--bg);
-            border: 1px solid var(--border-soft);
+            gap: 4px 22px;
             font-family: var(--font-mono);
-            font-size: 12.5px;
-            color: var(--text-dim);
-            transition: border-color 0.15s ease, color 0.15s ease;
-        }
-
-        .contact-chip:hover {
-            border-color: var(--teal);
-            color: var(--text);
-        }
-
-        .contact-chip i {
-            color: var(--teal);
             font-size: 13px;
         }
 
-        /* ============================================================
-           STATUS BAR (footer)
-           ============================================================ */
-        .status-bar {
-            display: flex;
-            align-items: center;
-            gap: clamp(10px, 2vw, 18px);
-            padding: 10px clamp(14px, 3vw, 26px);
-            background: var(--panel-2);
-            border-top: 1px solid var(--border);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            color: var(--text-faint);
-            overflow-x: auto;
-            white-space: nowrap;
+        .contact-row a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 1px;
+            transition: border-color 0.15s ease, color 0.15s ease;
         }
 
-        .status-bar .branch {
-            color: var(--green);
+        .contact-row a:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        /* ---------------------------------- sections ---------------------------------- */
+
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--ink-faint);
+            margin-bottom: 22px;
+        }
+
+        /* summary */
+
+        .summary p {
+            font-size: 16px;
+            color: var(--ink-soft);
+            max-width: 62ch;
+        }
+
+        /* skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px 32px;
+        }
+
+        @media (min-width: 620px) {
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .skill-group dt {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 13.5px;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .skill-group dd {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        /* projects */
+
+        .project {
+            padding: 22px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .project:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .project-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-head h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 19px;
+        }
+
+        .project-head a.project-link {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--ink-faint);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .project-head a.project-link:hover {
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .project-role {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-faint);
+            margin-top: 4px;
+        }
+
+        .project p.desc {
+            margin-top: 10px;
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            max-width: 64ch;
+        }
+
+        /* education / certifications */
+
+        .entry {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
+            padding: 16px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .entry:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        @media (min-width: 620px) {
+            .entry {
+                grid-template-columns: 140px 1fr;
+                gap: 20px;
+            }
+        }
+
+        .entry-period {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--ink-faint);
+        }
+
+        .entry-body h3 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .entry-body p {
+            margin-top: 4px;
+            font-size: 13.5px;
+            color: var(--ink-soft);
+        }
+
+        /* cv download */
+
+        .cv-download {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--ink);
+            border: 1px solid var(--line-strong);
+            padding: 12px 18px;
+            transition: background 0.15s ease, color 0.15s ease;
         }
 
-        .status-bar .dot {
-            color: var(--border);
+        .cv-download:hover {
+            background: var(--ink);
+            color: var(--bg);
         }
 
-        .status-bar .push {
-            margin-left: auto;
+        /* footer */
+
+        footer {
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--ink-faint);
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="editor-shell">
+    <div class="page">
 
-        <div class="path-bar">
-            <span class="crumb-accent">~</span>
-            <span class="sep">/</span>
-            <span>turdiali</span>
-            <span class="sep">/</span>
-            <span class="file">portfolio.py</span>
-            <div class="badges">
-                <span class="kbd-badge">UTF-8</span>
-                <span class="kbd-badge">read-only</span>
-            </div>
-        </div>
-
-        <div class="editor-body">
-            <div class="gutter" aria-hidden="true">
-                <span class="line-no" style="top:0;">01</span>
-                <span class="line-no" style="top:190px;">18</span>
-                <span class="line-no" style="top:420px;">34</span>
-                <span class="line-no" style="top:640px;">52</span>
-                <span class="line-no" style="top:760px;">61</span>
-            </div>
-
-            <main class="content-col">
-
-                <!-- PROFILE -->
-                <section class="block hero" aria-labelledby="profile-heading">
-                    <div class="avatar" id="avatar">
-                        <img src="/me.jpg" alt="Turdiali Khasanbayev"
-                            onerror="this.parentElement.classList.add('is-fallback')">
-                        <div class="avatar-fallback"><i class="fa-solid fa-user"></i></div>
-                    </div>
-                    <div class="hero-text">
-                        <p class="prompt-line"><span class="prompt-sym">$</span> whoami</p>
-                        <h1 id="profile-heading">Turdiali Khasanbayev</h1>
-                        <p class="role-line"><span class="hash">#</span> Software Engineer</p>
-                    </div>
-                </section>
-
-                <!-- SKILLS + PROJECTS -->
-                <div class="grid-2">
-                    <section class="block panel" aria-labelledby="skills-heading">
-                        <p class="eyebrow"><span class="kw">import</span> <span id="skills-heading">skills</span>
-                            <span class="cmt">// skills.md</span>
-                        </p>
-                        <ul class="skills-list">
-                            <li>Python</li>
-                            <li>Django Framework</li>
-                            <li>Django Rest Framework</li>
-                            <li>Linux</li>
-                            <li>PostgreSQL</li>
-                            <li>Deployment (nginx &amp;&amp; gunicorn)</li>
-                            <li>Git (GitHub &amp;&amp; GitLab)</li>
-                            <li>API testing (Unit &amp;&amp; Postman &amp;&amp; Swagger)</li>
-                        </ul>
-                    </section>
-
-                    <section class="block panel" aria-labelledby="projects-heading">
-                        <p class="eyebrow"><span class="kw">ls</span> <span id="projects-heading">projects/</span>
-                            <span class="cmt">// 3 items</span>
-                        </p>
-                        <div class="projects-list">
-                            <a href="https://iqtisodiybilim.uz" target="_blank" class="project-item">
-                                <div class="project-left">
-                                    <div class="project-icon"><i class="fa-solid fa-file-lines"></i></div>
-                                    <div class="project-info">
-                                        <h3>iqtisodiybilim.uz</h3>
-                                        <p>Django-powered blog for economics articles and educational content</p>
-                                    </div>
-                                </div>
-                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-                            </a>
-                            <a href="https://xasanbayev.uz" target="_blank" class="project-item">
-                                <div class="project-left">
-                                    <div class="project-icon"><i class="fa-solid fa-user"></i></div>
-                                    <div class="project-info">
-                                        <h3>xasanbayev.uz</h3>
-                                        <p>Personal developer portfolio built with Django</p>
-                                    </div>
-                                </div>
-                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-                            </a>
-                            <a href="https://t.me/reelgo_bot" target="_blank" class="project-item">
-                                <div class="project-left">
-                                    <div class="project-icon"><i class="fa-brands fa-instagram"></i></div>
-                                    <div class="project-info">
-                                        <h3>ReelGo Bot</h3>
-                                        <p>&#9889; Fast & easy Instagram Reels, Video and Photo Downloader Bot!</p>
-                                    </div>
-                                </div>
-                                <div class="ext-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-                            </a>
-                        </div>
-                    </section>
+        <header class="identity">
+            <div class="identity-top">
+                <div class="identity-name">
+                    <h1>Turdiali Khasanbayev</h1>
+                    <p class="identity-role">Software Engineer — Python / Backend</p>
                 </div>
+                <p class="identity-location">Bekabad, Tashkent<br>Uzbekistan</p>
+            </div>
 
-                <!-- CV -->
-                <section class="block panel" aria-labelledby="cv-heading">
-                    <p class="eyebrow"><span class="kw">open</span> <span id="cv-heading">cv.pdf</span></p>
-                    <a href="/cv.pdf" class="cv-download" download aria-label="Download resume PDF">
-                        <div class="project-left">
-                            <div class="project-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
-                            <div class="project-info">
-                                <h3>Download CV</h3>
-                                <p>PDF file</p>
-                            </div>
-                        </div>
-                        <div class="ext-icon"><i class="fa-solid fa-download"></i></div>
-                    </a>
-                </section>
+            <div class="contact-row">
+                <a href="mailto:xasanbayevturdiali7@gmail.com">xasanbayevturdiali7@gmail.com</a>
+                <a href="tel:+998884162060">+998 88 416 20 60</a>
+                <a href="https://xasanbayev.uz" target="_blank" rel="noopener">xasanbayev.uz</a>
+                <a href="https://github.com/turdialixasanbayev" target="_blank"
+                    rel="noopener">github.com/turdialixasanbayev</a>
+                <a href="https://t.me/turdialixasanbayev" target="_blank" rel="noopener">t.me/turdialixasanbayev</a>
+            </div>
+        </header>
 
-                <!-- CONTACT -->
-                <section class="block panel" aria-labelledby="contact-heading">
-                    <p class="eyebrow"><span class="kw">exec</span> <span id="contact-heading">contact.sh</span></p>
-                    <div class="contact-row" aria-label="Social links">
-                        <a href="mailto:xasanbayevturdiali7@gmail.com" class="contact-chip">
-                            <i class="fa-solid fa-envelope"></i> Email
-                        </a>
-                        <a href="https://t.me/turdialixasanbayev" target="_blank" class="contact-chip">
-                            <i class="fa-brands fa-telegram"></i> Telegram
-                        </a>
-                        <a href="https://github.com/turdialixasanbayev" target="_blank" class="contact-chip">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                        <a href="tel:+998884162060" class="contact-chip">
-                            <i class="fa-solid fa-phone"></i> Phone
-                        </a>
-                    </div>
-                </section>
+        <section class="summary" aria-labelledby="summary-heading">
+            <p class="eyebrow" id="summary-heading">Summary</p>
+            <p>
+                Backend-focused Software Engineer with expertise in building reliable, scalable, and
+                maintainable web applications and REST APIs using Python and the Django framework.
+                Proficient in database management with PostgreSQL, web server configuration using Nginx
+                and Gunicorn, and service deployment on Linux (Ubuntu) environments. Adheres strictly to
+                SOLID, DRY, and Clean Code principles to engineer robust backend systems.
+            </p>
+        </section>
 
-            </main>
-        </div>
+        <section class="skills" aria-labelledby="skills-heading">
+            <p class="eyebrow" id="skills-heading">Technical Skills</p>
+            <dl class="skills-grid">
+                <div class="skill-group">
+                    <dt>Languages</dt>
+                    <dd>Python</dd>
+                </div>
+                <div class="skill-group">
+                    <dt>Backend &amp; Frameworks</dt>
+                    <dd>Django · Django REST Framework · RESTful APIs</dd>
+                </div>
+                <div class="skill-group">
+                    <dt>Databases</dt>
+                    <dd>PostgreSQL</dd>
+                </div>
+                <div class="skill-group">
+                    <dt>Infrastructure &amp; DevOps</dt>
+                    <dd>Linux (Ubuntu) · Nginx · Gunicorn · Cloudflare · DigitalOcean</dd>
+                </div>
+                <div class="skill-group">
+                    <dt>Tools &amp; Version Control</dt>
+                    <dd>Git · GitHub · GitLab · Postman · Swagger / OpenAPI · Unit Testing</dd>
+                </div>
+                <div class="skill-group">
+                    <dt>Engineering Principles</dt>
+                    <dd>SOLID · DRY · Clean Code · OOP · PEP 8</dd>
+                </div>
+            </dl>
+        </section>
 
-        <div class="status-bar">
-            <span class="branch"><i class="fa-solid fa-code-branch"></i> main</span>
-            <span class="dot">&bull;</span>
-            <span>Python 3.14</span>
-            <span class="dot">&bull;</span>
-            <span>LF</span>
-            <span class="dot">&bull;</span>
-            <span id="clock"></span>
-            <span class="push">&copy; <span id="year"></span> Turdiali Khasanbayev</span>
-        </div>
+        <section class="projects" aria-labelledby="projects-heading">
+            <p class="eyebrow" id="projects-heading">Projects</p>
+
+            <article class="project">
+                <div class="project-head">
+                    <h3>iqtisodiybilim.uz</h3>
+                    <a class="project-link" href="https://iqtisodiybilim.uz" target="_blank"
+                        rel="noopener">iqtisodiybilim.uz ↗</a>
+                </div>
+                <p class="project-role">Lead Backend Developer</p>
+                <p class="desc">
+                    An educational web platform designed to improve economic literacy in Uzbekistan.
+                    Developed and deployed a dynamic web platform using Django and PostgreSQL, configured
+                    an Nginx reverse proxy and Gunicorn application server for production deployment on
+                    Ubuntu Linux, and designed clean database schemas with scalable routing middleware for
+                    asset performance.
+                </p>
+            </article>
+
+            <article class="project">
+                <div class="project-head">
+                    <h3>ReelGo Bot</h3>
+                    <a class="project-link" href="https://t.me/reelgo_bot" target="_blank" rel="noopener">@reelgo_bot
+                        ↗</a>
+                </div>
+                <p class="project-role">Creator &amp; Developer</p>
+                <p class="desc">
+                    A high-performance Telegram bot for Instagram media processing and audio recognition.
+                    Built an asynchronous media downloader using Python, Aiogram, and yt-dlp, integrated
+                    automatic audio recognition through the Shazam API, and optimized request handling for
+                    fast, reliable media delivery.
+                </p>
+            </article>
+
+            <article class="project">
+                <div class="project-head">
+                    <h3>xasanbayev.uz</h3>
+                    <a class="project-link" href="https://xasanbayev.uz" target="_blank" rel="noopener">xasanbayev.uz
+                        ↗</a>
+                </div>
+                <p class="project-role">Developer Portfolio</p>
+                <p class="desc">
+                    A personal developer portfolio built with Django, using custom views and clean template
+                    architecture to render project data dynamically.
+                </p>
+            </article>
+        </section>
+
+        <section class="education" aria-labelledby="education-heading">
+            <p class="eyebrow" id="education-heading">Education</p>
+            <div class="entry">
+                <p class="entry-period">2025 — Present</p>
+                <div class="entry-body">
+                    <h3>Gulistan State University</h3>
+                    <p>B.Sc. in Information Systems and Technologies, 2nd-Year Student</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="certifications" aria-labelledby="certifications-heading">
+            <p class="eyebrow" id="certifications-heading">Practical Work &amp; Certifications</p>
+
+            <div class="entry">
+                <p class="entry-period">Certificate</p>
+                <div class="entry-body">
+                    <h3>Full Stack Python Development</h3>
+                    <p>
+                        A one-year professional course covering end-to-end web application development, core
+                        Python architecture, Django / DRF backend systems, RESTful APIs, and database
+                        engineering.
+                    </p>
+                </div>
+            </div>
+
+            <div class="entry">
+                <p class="entry-period">Practice</p>
+                <div class="entry-body">
+                    <h3>100 Days of Code (Python)</h3>
+                    <p>Intensive hands-on mastery of Python fundamentals, data structures, and backend mechanics.</p>
+                </div>
+            </div>
+
+            <div class="entry">
+                <p class="entry-period">Self-Study</p>
+                <div class="entry-body">
+                    <h3>Self-Directed Backend Engineering</h3>
+                    <p>Independent study focused on REST API engineering, clean architecture, and deployment pipeline
+                        management.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-download" aria-labelledby="cv-heading">
+            <p class="eyebrow" id="cv-heading">Resume</p>
+            <a class="cv-download" href="/cv.pdf" download>Download CV (PDF)</a>
+        </section>
+
+        <footer>
+            <span>&copy; <span id="year"></span> Turdiali Khasanbayev</span>
+            <span>Bekabad, Uzbekistan</span>
+        </footer>
 
     </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        const clockEl = document.getElementById('clock');
-        function tick() {
-            const now = new Date();
-            const hh = String(now.getHours()).padStart(2, '0');
-            const mm = String(now.getMinutes()).padStart(2, '0');
-            const ss = String(now.getSeconds()).padStart(2, '0');
-            clockEl.textContent = hh + ':' + mm + ':' + ss;
-        }
-        tick();
-        setInterval(tick, 1000);
     </script>
 </body>
 
