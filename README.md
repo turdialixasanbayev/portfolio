@@ -30,12 +30,9 @@ A lightweight, responsive one-pager presenting who I am, what I work with, and h
 
 ```
 portfolio/
-├── apple-touch-icon.png
 ├── CNAME
 ├── cv.pdf
-├── favicon.ico
 ├── index.html
-├── preview.png
 └── README.md
 ```
 
