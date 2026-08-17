@@ -1,4 +1,4 @@
-# Turdiali Khasanbayev — Portfolio
+# Turdiali Xasanbayev — Portfolio
 
 A single-page personal portfolio built with HTML, CSS, and a touch of JavaScript, styled as a minimalist, resume-style document.
 
