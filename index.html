@@ -5,57 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Turdiali Xasanbayev — Python / Django Software Engineer</title>
+    <title>Turdiali Xasanbayev - Software Engineer</title>
 
     <meta name="description"
-        content="Turdiali Xasanbayev is a backend-focused Software Engineer specializing in Python, Django and REST API development, PostgreSQL database design, and Linux server deployment with Nginx and Gunicorn.">
+        content="Turdiali Xasanbayev is a backend software engineer working with Python, Django and PostgreSQL. He builds reliable web applications and REST APIs, and deploys them on Linux servers with Nginx and Gunicorn.">
     <meta name="keywords"
-        content="Turdiali Xasanbayev, Python developer, Django developer, backend engineer, REST API, PostgreSQL, Nginx, Gunicorn, Uzbekistan software engineer">
+        content="Turdiali Xasanbayev, Python developer, Django developer, backend engineer, REST API, PostgreSQL">
     <meta name="author" content="Turdiali Xasanbayev">
-
     <meta name="robots" content="index, follow">
-
     <link rel="canonical" href="https://xasanbayev.uz">
+    <meta name="theme-color" content="#f6f6f4">
 
-    <meta name="theme-color" content="#ffffff">
-
-
-    <meta property="og:title" content="Turdiali Xasanbayev — Python / Django Software Engineer">
+    <meta property="og:title" content="Turdiali Xasanbayev - Software Engineer">
     <meta property="og:description"
-        content="Backend-focused Software Engineer building reliable, scalable web applications and REST APIs with Python, Django and PostgreSQL.">
+        content="Backend software engineer working with Python, Django and PostgreSQL, building reliable web applications and REST APIs.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="xasanbayev.uz">
     <meta property="og:url" content="https://xasanbayev.uz">
     <meta property="og:locale" content="en_US">
 
-    <link rel="alternate" hreflang="en" href="https://xasanbayev.uz">
-
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Turdiali Xasanbayev — Python / Django Software Engineer">
+    <meta name="twitter:title" content="Turdiali Xasanbayev - Software Engineer">
     <meta name="twitter:description"
-        content="Backend-focused Software Engineer building reliable, scalable web applications and REST APIs with Python, Django and PostgreSQL.">
+        content="Backend software engineer working with Python, Django and PostgreSQL, building reliable web applications and REST APIs.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --bg: #ffffff;
-            --ink: #111111;
-            --ink-soft: #55585c;
-            --ink-faint: #9a9a9a;
-            --line: #e3e3e1;
-            --line-strong: #111111;
+            --paper: #f6f6f4;
+            --panel: #fdfdfc;
+            --ink: #16191c;
+            --ink-2: #4c5359;
+            --ink-3: #8b9096;
+            --line: #dcded9;
+            --accent: #2e5e8c;
+            --accent-soft: #2e5e8c1a;
 
-            --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-            --measure: 700px;
+            --measure: 760px;
+            --corner: 14px;
         }
 
         * {
@@ -69,7 +65,9 @@
         }
 
         body {
-            background: var(--bg);
+            background-color: var(--paper);
+            background-image: radial-gradient(var(--line) 1px, transparent 1px);
+            background-size: 22px 22px;
             color: var(--ink);
             font-family: var(--font-body);
             line-height: 1.6;
@@ -80,8 +78,13 @@
             color: inherit;
         }
 
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         :focus-visible {
-            outline: 2px solid var(--ink);
+            outline: 2px solid var(--accent);
             outline-offset: 3px;
         }
 
@@ -92,10 +95,59 @@
             }
         }
 
-        .page {
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--ink);
+            color: var(--panel);
+            padding: 10px 16px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            z-index: 10;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+            top: 12px;
+        }
+
+        .wrap {
             max-width: var(--measure);
             margin: 0 auto;
-            padding: clamp(48px, 9vw, 96px) clamp(20px, 5vw, 24px) 64px;
+            padding: clamp(40px, 8vw, 88px) clamp(18px, 5vw, 24px) 56px;
+        }
+
+        /* ---------------------------------- corner-frame signature ---------------------------------- */
+
+        .frame {
+            position: relative;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: clamp(20px, 4vw, 32px);
+        }
+
+        .frame::before,
+        .frame::after {
+            content: "";
+            position: absolute;
+            width: var(--corner);
+            height: var(--corner);
+            pointer-events: none;
+        }
+
+        .frame::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid var(--accent);
+            border-left: 2px solid var(--accent);
+        }
+
+        .frame::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
         }
 
         /* ---------------------------------- header ---------------------------------- */
@@ -103,9 +155,8 @@
         header.identity {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            padding-bottom: 36px;
-            border-bottom: 1px solid var(--line-strong);
+            gap: 22px;
+            margin-bottom: 48px;
         }
 
         .identity-top {
@@ -118,26 +169,51 @@
 
         .identity-name h1 {
             font-family: var(--font-display);
-            font-weight: 600;
-            font-size: clamp(30px, 5.4vw, 42px);
+            font-weight: 700;
+            font-size: clamp(28px, 5.4vw, 40px);
             letter-spacing: -0.01em;
             line-height: 1.1;
         }
 
-        .identity-role {
-            margin-top: 8px;
+        .status {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-family: var(--font-mono);
             font-size: 12.5px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--ink-soft);
+            letter-spacing: 0.04em;
+            color: var(--ink-2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 0 var(--accent-soft);
+            animation: pulse 2.4s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 var(--accent-soft);
+            }
+
+            70% {
+                box-shadow: 0 0 0 7px transparent;
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 transparent;
+            }
         }
 
         .identity-location {
             font-family: var(--font-mono);
             font-size: 12px;
-            letter-spacing: 0.06em;
-            color: var(--ink-faint);
+            letter-spacing: 0.04em;
+            color: var(--ink-3);
             text-align: right;
             white-space: nowrap;
         }
@@ -145,49 +221,50 @@
         .contact-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px 22px;
+            gap: 6px 20px;
             font-family: var(--font-mono);
-            font-size: 13px;
+            font-size: 12.5px;
         }
 
         .contact-row a {
             text-decoration: none;
-            color: var(--ink-soft);
+            color: var(--ink-2);
             border-bottom: 1px solid transparent;
             padding-bottom: 1px;
             transition: border-color 0.15s ease, color 0.15s ease;
         }
 
         .contact-row a:hover {
-            color: var(--ink);
-            border-color: var(--ink);
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         /* ---------------------------------- sections ---------------------------------- */
 
         section {
             padding: 40px 0;
-            border-bottom: 1px solid var(--line);
+            border-top: 1px solid var(--line);
         }
 
-        section:last-of-type {
-            border-bottom: none;
+        section:first-of-type {
+            border-top: none;
+            padding-top: 0;
         }
 
         .eyebrow {
             font-family: var(--font-mono);
             font-size: 11.5px;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--ink-faint);
-            margin-bottom: 22px;
+            letter-spacing: 0.14em;
+            color: var(--ink-3);
+            margin-bottom: 20px;
         }
 
         /* summary */
 
         .summary p {
             font-size: 16px;
-            color: var(--ink-soft);
+            color: var(--ink-2);
             max-width: 62ch;
         }
 
@@ -216,20 +293,22 @@
         .skill-group dd {
             font-family: var(--font-mono);
             font-size: 12.5px;
-            color: var(--ink-soft);
+            color: var(--ink-2);
             line-height: 1.7;
         }
 
         /* projects */
 
-        .project {
-            padding: 22px 0;
-            border-top: 1px solid var(--line);
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
 
-        .project:first-of-type {
-            border-top: none;
-            padding-top: 0;
+        .project {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .project-head {
@@ -249,14 +328,14 @@
         .project-head a.project-link {
             font-family: var(--font-mono);
             font-size: 12px;
-            color: var(--ink-faint);
+            color: var(--ink-3);
             text-decoration: none;
             border-bottom: 1px solid transparent;
         }
 
         .project-head a.project-link:hover {
-            color: var(--ink);
-            border-color: var(--ink);
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         .project-role {
@@ -264,24 +343,27 @@
             font-size: 11.5px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--ink-faint);
-            margin-top: 4px;
+            color: var(--ink-3);
         }
 
         .project p.desc {
-            margin-top: 10px;
             font-size: 14.5px;
-            color: var(--ink-soft);
+            color: var(--ink-2);
             max-width: 64ch;
         }
 
-        /* education / certifications */
+        /* timeline entries: education, certifications */
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+        }
 
         .entry {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 4px;
-            padding: 16px 0;
+            grid-template-columns: 34px 1fr;
+            gap: 16px;
+            padding: 18px 0;
             border-top: 1px solid var(--line);
         }
 
@@ -290,17 +372,10 @@
             padding-top: 0;
         }
 
-        @media (min-width: 620px) {
-            .entry {
-                grid-template-columns: 140px 1fr;
-                gap: 20px;
-            }
-        }
-
-        .entry-period {
+        .entry-index {
             font-family: var(--font-mono);
             font-size: 12px;
-            color: var(--ink-faint);
+            color: var(--accent);
         }
 
         .entry-body h3 {
@@ -308,13 +383,35 @@
             font-weight: 600;
         }
 
+        .entry-period {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--ink-3);
+            margin-top: 2px;
+        }
+
         .entry-body p {
-            margin-top: 4px;
+            margin-top: 6px;
             font-size: 13.5px;
-            color: var(--ink-soft);
+            color: var(--ink-2);
+            max-width: 60ch;
         }
 
         /* cv download */
+
+        .resume-download .frame {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .resume-download p {
+            font-size: 13.5px;
+            color: var(--ink-2);
+            max-width: 40ch;
+        }
 
         .cv-download {
             display: inline-flex;
@@ -323,15 +420,17 @@
             text-decoration: none;
             font-family: var(--font-mono);
             font-size: 13px;
-            color: var(--ink);
-            border: 1px solid var(--line-strong);
+            color: var(--panel);
+            background: var(--ink);
+            border: 1px solid var(--ink);
             padding: 12px 18px;
+            white-space: nowrap;
             transition: background 0.15s ease, color 0.15s ease;
         }
 
         .cv-download:hover {
-            background: var(--ink);
-            color: var(--bg);
+            background: var(--accent);
+            border-color: var(--accent);
         }
 
         /* footer */
@@ -344,176 +443,189 @@
             gap: 8px;
             font-family: var(--font-mono);
             font-size: 11.5px;
-            color: var(--ink-faint);
+            color: var(--ink-3);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="page">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <header class="identity">
+    <div class="wrap">
+
+        <header class="identity frame">
             <div class="identity-top">
                 <div class="identity-name">
                     <h1>Turdiali Xasanbayev</h1>
-                    <p class="identity-role">Software Engineer — Python / Backend</p>
+                    <span class="status">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        Software Engineer, available for work
+                    </span>
                 </div>
                 <p class="identity-location">Bekabad, Tashkent<br>Uzbekistan</p>
             </div>
 
-            <div class="contact-row">
+            <nav class="contact-row" aria-label="Contact links">
                 <a href="mailto:xasanbayevturdiali7@gmail.com">xasanbayevturdiali7@gmail.com</a>
                 <a href="tel:+998884162060">+998 88 416 20 60</a>
                 <a href="https://github.com/turdialixasanbayev" target="_blank"
                     rel="noopener">github.com/turdialixasanbayev</a>
                 <a href="https://t.me/turdialixasanbayev" target="_blank" rel="noopener">t.me/turdialixasanbayev</a>
-                <a href="https://instagram.com/turdiali_xasanbayev" target="_blank" rel="noopener">instagram.com/turdiali_xasanbayev</a>
-                <a href="https://www.youtube.com/@turdiali_xasanbayev" target="_blank" rel="noopener">www.youtube.com/@turdiali_xasanbayev</a>
-            </div>
+                <a href="https://instagram.com/turdiali_xasanbayev" target="_blank"
+                    rel="noopener">instagram.com/turdiali_xasanbayev</a>
+                <a href="https://www.youtube.com/@turdiali_xasanbayev" target="_blank"
+                    rel="noopener">youtube.com/@turdiali_xasanbayev</a>
+            </nav>
         </header>
 
-        <section class="summary" aria-labelledby="summary-heading">
-            <p class="eyebrow" id="summary-heading">Summary</p>
-            <p>
-                Backend-focused Software Engineer with expertise in building reliable, scalable, and
-                maintainable web applications and REST APIs using Python and the Django framework.
-                Proficient in database management with PostgreSQL, web server configuration using Nginx
-                and Gunicorn, and service deployment on Linux (Ubuntu) environments. Adheres strictly to
-                SOLID, DRY, and Clean Code principles to engineer robust backend systems.
-            </p>
-        </section>
+        <main id="main">
 
-        <section class="skills" aria-labelledby="skills-heading">
-            <p class="eyebrow" id="skills-heading">Technical Skills</p>
-            <dl class="skills-grid">
-                <div class="skill-group">
-                    <dt>Languages</dt>
-                    <dd>Python</dd>
-                </div>
-                <div class="skill-group">
-                    <dt>Backend &amp; Frameworks</dt>
-                    <dd>Django · Django REST Framework · RESTful APIs</dd>
-                </div>
-                <div class="skill-group">
-                    <dt>Databases</dt>
-                    <dd>PostgreSQL</dd>
-                </div>
-                <div class="skill-group">
-                    <dt>Infrastructure &amp; DevOps</dt>
-                    <dd>Linux (Ubuntu) · Nginx · Gunicorn · Cloudflare · DigitalOcean</dd>
-                </div>
-                <div class="skill-group">
-                    <dt>Tools &amp; Version Control</dt>
-                    <dd>Git · GitHub · GitLab · Postman · Swagger / OpenAPI · Unit Testing</dd>
-                </div>
-                <div class="skill-group">
-                    <dt>Engineering Principles</dt>
-                    <dd>SOLID · DRY · Clean Code · OOP · PEP 8</dd>
-                </div>
-            </dl>
-        </section>
-
-        <section class="projects" aria-labelledby="projects-heading">
-            <p class="eyebrow" id="projects-heading">Projects</p>
-
-            <article class="project">
-                <div class="project-head">
-                    <h3>iqtisodiybilim.uz</h3>
-                    <a class="project-link" href="https://iqtisodiybilim.uz" target="_blank"
-                        rel="noopener">iqtisodiybilim.uz ↗</a>
-                </div>
-                <p class="project-role">Lead Backend Developer</p>
-                <p class="desc">
-                    An educational web platform designed to improve economic literacy in Uzbekistan.
-                    Developed and deployed a dynamic web platform using Django and PostgreSQL, configured
-                    an Nginx reverse proxy and Gunicorn application server for production deployment on
-                    Ubuntu Linux, and designed clean database schemas with scalable routing middleware for
-                    asset performance.
+            <section class="summary" aria-labelledby="summary-heading">
+                <p class="eyebrow" id="summary-heading">Summary</p>
+                <p>
+                    I am a backend software engineer who builds and maintains web applications with Python
+                    and Django. My work covers the full backend: designing PostgreSQL databases, writing
+                    REST APIs, and deploying and running services on Linux servers with Nginx and Gunicorn.
+                    I write code that follows SOLID and DRY principles, so it stays easy to read, test, and
+                    change as a project grows.
                 </p>
-            </article>
+            </section>
 
-            <article class="project">
-                <div class="project-head">
-                    <h3>ReelGo Bot</h3>
-                    <a class="project-link" href="https://t.me/reelgo_bot" target="_blank" rel="noopener">@reelgo_bot
-                        ↗</a>
+            <section class="skills" aria-labelledby="skills-heading">
+                <p class="eyebrow" id="skills-heading">Technical Skills</p>
+                <dl class="skills-grid">
+                    <div class="skill-group">
+                        <dt>Languages</dt>
+                        <dd>Python</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Backend &amp; Frameworks</dt>
+                        <dd>Django, Django REST Framework, RESTful APIs</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Databases</dt>
+                        <dd>PostgreSQL</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Infrastructure &amp; DevOps</dt>
+                        <dd>Linux (Ubuntu), Nginx, Gunicorn, Cloudflare, DigitalOcean</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Tools &amp; Version Control</dt>
+                        <dd>Git, GitHub, GitLab, Postman, Swagger / OpenAPI, Unit Testing</dd>
+                    </div>
+                    <div class="skill-group">
+                        <dt>Engineering Principles</dt>
+                        <dd>SOLID, DRY, Clean Code, OOP, PEP 8</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="projects" aria-labelledby="projects-heading">
+                <p class="eyebrow" id="projects-heading">Projects</p>
+
+                <div class="project-list">
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>iqtisodiybilim.uz</h3>
+                            <a class="project-link" href="https://iqtisodiybilim.uz" target="_blank"
+                                rel="noopener">iqtisodiybilim.uz ↗</a>
+                        </div>
+                        <p class="project-role">Lead Backend Developer</p>
+                        <p class="desc">
+                            An educational web platform built to improve economic literacy in Uzbekistan. I
+                            developed and deployed the platform with Django and PostgreSQL, set up an Nginx
+                            reverse proxy with Gunicorn for production on Ubuntu, and designed the database
+                            schema and routing for good page performance.
+                        </p>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>ReelGo Bot</h3>
+                            <a class="project-link" href="https://t.me/reelgo_bot" target="_blank"
+                                rel="noopener">@reelgo_bot ↗</a>
+                        </div>
+                        <p class="project-role">Creator &amp; Developer</p>
+                        <p class="desc">
+                            A Telegram bot for downloading Instagram media and recognizing audio. Built as an
+                            asynchronous downloader with Python, Aiogram, and yt-dlp, with Shazam API
+                            integration for automatic audio recognition and fast, reliable delivery.
+                        </p>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-head">
+                            <h3>xasanbayev.uz</h3>
+                            <a class="project-link" href="https://xasanbayev.uz" target="_blank"
+                                rel="noopener">xasanbayev.uz ↗</a>
+                        </div>
+                        <p class="project-role">Developer Portfolio</p>
+                        <p class="desc">
+                            My personal developer portfolio, built with Django using custom views and a clean
+                            template structure to render project data dynamically.
+                        </p>
+                    </article>
                 </div>
-                <p class="project-role">Creator &amp; Developer</p>
-                <p class="desc">
-                    A high-performance Telegram bot for Instagram media processing and audio recognition.
-                    Built an asynchronous media downloader using Python, Aiogram, and yt-dlp, integrated
-                    automatic audio recognition through the Shazam API, and optimized request handling for
-                    fast, reliable media delivery.
-                </p>
-            </article>
+            </section>
 
-            <article class="project">
-                <div class="project-head">
-                    <h3>xasanbayev.uz</h3>
-                    <a class="project-link" href="https://xasanbayev.uz" target="_blank" rel="noopener">xasanbayev.uz
-                        ↗</a>
+            <section class="education" aria-labelledby="education-heading">
+                <p class="eyebrow" id="education-heading">Education</p>
+                <div class="timeline">
+                    <div class="entry">
+                        <span class="entry-index">01</span>
+                        <div class="entry-body">
+                            <h3>Gulistan State University</h3>
+                            <p class="entry-period">2025 - Present</p>
+                            <p>B.Sc. in Information Systems and Technologies, 2nd-year student</p>
+                        </div>
+                    </div>
                 </div>
-                <p class="project-role">Developer Portfolio</p>
-                <p class="desc">
-                    A personal developer portfolio built with Django, using custom views and clean template
-                    architecture to render project data dynamically.
-                </p>
-            </article>
-        </section>
+            </section>
 
-        <section class="education" aria-labelledby="education-heading">
-            <p class="eyebrow" id="education-heading">Education</p>
-            <div class="entry">
-                <p class="entry-period">2025 — Present</p>
-                <div class="entry-body">
-                    <h3>Gulistan State University</h3>
-                    <p>B.Sc. in Information Systems and Technologies, 2nd-Year Student</p>
+            <section class="certifications" aria-labelledby="certifications-heading">
+                <p class="eyebrow" id="certifications-heading">Certifications</p>
+                <div class="timeline">
+                    <div class="entry">
+                        <span class="entry-index">01</span>
+                        <div class="entry-body">
+                            <h3>Full Stack Python Development</h3>
+                            <p class="entry-period">One-year course</p>
+                            <p>
+                                End-to-end web application development, including core Python, Django and DRF
+                                backend systems, RESTful APIs, and database engineering.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <span class="entry-index">02</span>
+                        <div class="entry-body">
+                            <h3>Python (Basic) - HackerRank</h3>
+                            <p class="entry-period">Earned 26 Aug 2026 · ID CF09F34434A1</p>
+                            <p>
+                                Certificate of Accomplishment awarded for passing HackerRank's Python (Basic)
+                                skill certification test.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="certifications" aria-labelledby="certifications-heading">
-            <p class="eyebrow" id="certifications-heading">Practical Work &amp; Certifications</p>
-
-            <div class="entry">
-                <p class="entry-period">Certificate</p>
-                <div class="entry-body">
-                    <h3>Full Stack Python Development</h3>
-                    <p>
-                        A one-year professional course covering end-to-end web application development, core
-                        Python architecture, Django / DRF backend systems, RESTful APIs, and database
-                        engineering.
-                    </p>
+            <section class="resume-download" aria-labelledby="cv-heading">
+                <p class="eyebrow" id="cv-heading">Resume</p>
+                <div class="frame">
+                    <p>Get the full resume as a PDF for an offline copy of everything above.</p>
+                    <a class="cv-download" href="/cv.pdf" download>Download CV (PDF)</a>
                 </div>
-            </div>
+            </section>
 
-            <div class="entry">
-                <p class="entry-period">Practice</p>
-                <div class="entry-body">
-                    <h3>100 Days of Code (Python)</h3>
-                    <p>Intensive hands-on mastery of Python fundamentals, data structures, and backend mechanics.</p>
-                </div>
-            </div>
-
-            <div class="entry">
-                <p class="entry-period">Self-Study</p>
-                <div class="entry-body">
-                    <h3>Self-Directed Backend Engineering</h3>
-                    <p>Independent study focused on REST API engineering, clean architecture, and deployment pipeline
-                        management.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="resume-download" aria-labelledby="cv-heading">
-            <p class="eyebrow" id="cv-heading">Resume</p>
-            <a class="cv-download" href="/cv.pdf" download>Download CV (PDF)</a>
-        </section>
+        </main>
 
         <footer>
             <span>&copy; <span id="year"></span> Turdiali Xasanbayev</span>
-            <span>Bekabad, Uzbekistan</span>
+            <span>Tashkent, Uzbekistan</span>
         </footer>
 
     </div>
