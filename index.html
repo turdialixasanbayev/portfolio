@@ -5,50 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Turdiali Xasanbayev - Backend Developer</title>
+    <title>Turdiali Xasanbayev</title>
 
     <meta name="description"
-        content="Turdiali Xasanbayev is a backend developer working with Python, Django, DRF and PostgreSQL. He builds and deploys web applications on Linux servers with Nginx and Gunicorn.">
+        content="Turdiali Xasanbayev — backend developer working with Python, Django, DRF and PostgreSQL, deploying applications on Linux with Nginx and Gunicorn.">
+    <meta name="keywords"
+        content="Turdiali Xasanbayev, backend developer, Python developer, Django developer, Django REST Framework, PostgreSQL, Linux server, Nginx, Gunicorn, Tashkent, Uzbekistan">
     <meta name="author" content="Turdiali Xasanbayev">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://xasanbayev.uz/">
-    <meta name="theme-color" content="#f1f3f1">
+    <meta name="theme-color" content="#f3f4f0">
 
-    <meta property="og:title" content="Turdiali Xasanbayev - Backend Developer">
+    <meta property="og:title" content="Turdiali Xasanbayev — Backend Developer">
     <meta property="og:description"
-        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys web applications on Linux with Nginx and Gunicorn.">
+        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys applications on Linux with Nginx and Gunicorn.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="xasanbayev.uz">
     <meta property="og:url" content="https://xasanbayev.uz/">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Turdiali Xasanbayev - Backend Developer">
+    <meta name="twitter:title" content="Turdiali Xasanbayev — Backend Developer">
     <meta name="twitter:description"
-        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys web applications on Linux with Nginx and Gunicorn.">
+        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys applications on Linux with Nginx and Gunicorn.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Turdiali Xasanbayev",
+        "url": "https://xasanbayev.uz/",
+        "jobTitle": "Backend Developer",
+        "knowsAbout": ["Python", "Django", "Django REST Framework", "PostgreSQL", "Linux", "Nginx", "Gunicorn"],
+        "sameAs": [
+            "https://github.com/turdialixasanbayev",
+            "https://t.me/turdialixasanbayev"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tashkent",
+            "addressCountry": "UZ"
+        }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --bg: #f1f3f1;
+            --bg: #f3f4f0;
+            --panel: #eceeE7;
             --surface: #ffffff;
-            --ink: #1b211d;
-            --ink-2: #57625b;
-            --ink-3: #8b968e;
-            --line: #dde2dd;
-            --accent: #2f5c47;
-            --accent-soft: #2f5c471a;
+            --ink: #171b1f;
+            --ink-2: #545c62;
+            --ink-3: #868d92;
+            --line: #d9dbd3;
+            --accent: #2e5aa8;
+            --accent-soft: rgba(46, 90, 168, 0.08);
 
-            --font-head: 'Manrope', 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
 
-            --measure: 640px;
+            --sidebar-w: 252px;
+            --gap: 56px;
         }
 
         * {
@@ -57,11 +80,15 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: var(--bg);
             color: var(--ink);
             font-family: var(--font-body);
-            line-height: 1.6;
+            line-height: 1.65;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -75,6 +102,10 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
             * {
                 transition: none !important;
             }
@@ -96,96 +127,170 @@
             top: 12px;
         }
 
-        .page {
-            max-width: var(--measure);
+        /* shell: sidebar + main */
+
+        .shell {
+            max-width: 980px;
             margin: 0 auto;
-            padding: clamp(40px, 8vw, 80px) 20px 60px;
+            padding: clamp(28px, 5vw, 56px) 20px 64px;
+            display: grid;
+            grid-template-columns: var(--sidebar-w) 1fr;
+            gap: var(--gap);
+            align-items: start;
         }
 
-        /* masthead */
-
-        .masthead {
-            padding-bottom: 32px;
+        @media (max-width: 760px) {
+            .shell {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
 
-        .masthead h1 {
-            font-family: var(--font-head);
-            font-weight: 800;
-            font-size: clamp(30px, 6vw, 42px);
+        /* sidebar */
+
+        .sidebar {
+            position: sticky;
+            top: clamp(24px, 4vw, 48px);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            padding: 24px 22px;
+        }
+
+        @media (max-width: 760px) {
+            .sidebar {
+                position: static;
+            }
+        }
+
+        .id-name {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 19px;
             letter-spacing: -0.01em;
         }
 
-        .role {
-            margin-top: 6px;
-            font-size: 16px;
-            color: var(--ink-2);
-        }
-
-        .mast-contact {
-            font-style: normal;
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 18px;
-            font-size: 14px;
-        }
-
-        .mast-contact a {
-            text-decoration: none;
-            color: var(--ink-2);
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 1px;
-            transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .mast-contact a:hover {
+        .id-role {
+            margin-top: 4px;
+            font-size: 13.5px;
             color: var(--accent);
-            border-color: var(--accent);
+            font-family: var(--font-mono);
+            font-weight: 600;
         }
 
-        .mast-location {
+        .id-location {
             margin-top: 10px;
             font-size: 13px;
             color: var(--ink-3);
         }
 
-        /* sections */
+        .id-contact {
+            font-style: normal;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .id-contact a {
+            font-size: 13px;
+            text-decoration: none;
+            color: var(--ink-2);
+            word-break: break-word;
+            transition: color 0.15s ease;
+        }
+
+        .id-contact a:hover {
+            color: var(--accent);
+        }
+
+        .id-nav {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .id-nav ol {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .id-nav a {
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+            text-decoration: none;
+            font-size: 13.5px;
+            color: var(--ink-2);
+            padding: 3px 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .id-nav a:hover,
+        .id-nav a:focus-visible {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .id-nav .ln {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--ink-3);
+            min-width: 14px;
+        }
+
+        @media (max-width: 760px) {
+            .id-nav ol {
+                flex-direction: row;
+                flex-wrap: wrap;
+                column-gap: 16px;
+            }
+        }
+
+        /* main content */
+
+        main {
+            min-width: 0;
+        }
 
         section {
-            padding: 32px 0;
+            padding-bottom: 40px;
+        }
+
+        section+section {
+            margin-top: 40px;
+            padding-top: 4px;
             border-top: 1px solid var(--line);
         }
 
         section h2 {
-            position: relative;
-            padding-left: 16px;
-            font-family: var(--font-head);
-            font-weight: 700;
+            font-family: var(--font-mono);
+            font-weight: 600;
             font-size: 15px;
-            margin-bottom: 16px;
+            color: var(--ink);
         }
 
-        section h2::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 3px;
-            width: 4px;
-            height: 14px;
-            background: var(--accent);
+        section h2 .hash {
+            color: var(--accent);
         }
 
         /* summary */
 
         #summary p {
-            font-size: 15.5px;
+            margin-top: 14px;
+            font-size: 16px;
             color: var(--ink-2);
-            max-width: 58ch;
+            max-width: 56ch;
         }
 
         /* skills */
 
         .skill-list {
+            margin-top: 14px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 10px;
@@ -204,9 +309,10 @@
         /* projects */
 
         .project-list {
+            margin-top: 14px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 26px;
         }
 
         .project-top {
@@ -218,20 +324,19 @@
         }
 
         .project-top h3 {
-            font-family: var(--font-head);
-            font-weight: 700;
-            font-size: 17px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 16.5px;
         }
 
         .project-top a {
             font-size: 13px;
-            color: var(--ink-3);
+            color: var(--accent);
             text-decoration: none;
             border-bottom: 1px solid transparent;
         }
 
         .project-top a:hover {
-            color: var(--accent);
             border-color: var(--accent);
         }
 
@@ -244,19 +349,24 @@
 
         /* education & certification records */
 
+        .record {
+            margin-top: 14px;
+        }
+
         .record+.record {
-            margin-top: 20px;
+            margin-top: 22px;
         }
 
         .record h3 {
-            font-family: var(--font-head);
-            font-weight: 700;
+            font-family: var(--font-body);
+            font-weight: 600;
             font-size: 15.5px;
         }
 
         .record .period {
             margin-top: 3px;
             font-size: 13px;
+            font-family: var(--font-mono);
             color: var(--ink-3);
         }
 
@@ -264,23 +374,25 @@
             margin-top: 8px;
             font-size: 14px;
             color: var(--ink-2);
-            max-width: 58ch;
+            max-width: 56ch;
         }
 
         /* resume */
 
         #resume p {
+            margin-top: 14px;
             font-size: 14.5px;
             color: var(--ink-2);
             max-width: 50ch;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .resume-link {
             display: inline-block;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
+            font-family: var(--font-mono);
+            font-weight: 600;
             color: var(--surface);
             background: var(--ink);
             padding: 11px 20px;
@@ -294,8 +406,11 @@
         /* footer */
 
         footer {
-            padding-top: 28px;
-            font-size: 12.5px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line);
+            font-family: var(--font-mono);
+            font-size: 12px;
             color: var(--ink-3);
         }
     </style>
@@ -305,13 +420,14 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="page">
+    <div class="shell">
 
-        <header class="masthead">
-            <h1>Turdiali Xasanbayev</h1>
-            <p class="role">Backend developer - Python and Django</p>
+        <aside class="sidebar">
+            <p class="id-name">Turdiali Xasanbayev</p>
+            <p class="id-role">Backend Developer</p>
+            <p class="id-location">Tashkent, Uzbekistan</p>
 
-            <address class="mast-contact">
+            <address class="id-contact">
                 <a href="mailto:xasanbayevturdiali7@gmail.com">xasanbayevturdiali7@gmail.com</a>
                 <a href="tel:+998884162060">+998 88 416 20 60</a>
                 <a href="https://github.com/turdialixasanbayev" target="_blank"
@@ -319,22 +435,30 @@
                 <a href="https://t.me/turdialixasanbayev" target="_blank" rel="noopener">t.me/turdialixasanbayev</a>
             </address>
 
-            <p class="mast-location">Tashkent, Uzbekistan</p>
-        </header>
+            <nav class="id-nav" aria-label="Section navigation">
+                <ol>
+                    <li><a href="#summary"><span class="ln">1</span>summary</a></li>
+                    <li><a href="#skills"><span class="ln">2</span>skills</a></li>
+                    <li><a href="#projects"><span class="ln">3</span>projects</a></li>
+                    <li><a href="#education"><span class="ln">4</span>education</a></li>
+                    <li><a href="#certification"><span class="ln">5</span>certification</a></li>
+                    <li><a href="#resume"><span class="ln">6</span>resume</a></li>
+                </ol>
+            </nav>
+        </aside>
 
         <main id="main">
 
             <section id="summary" aria-labelledby="summary-heading">
-                <h2 id="summary-heading">Summary</h2>
+                <h2 id="summary-heading"><span class="hash">##</span> summary</h2>
                 <p>
-                    I build backend systems with Python and Django. My work includes designing
-                    PostgreSQL databases, writing REST APIs with Django REST Framework, and deploying
-                    applications on Linux servers with Nginx and Gunicorn.
+                    I design and build backend systems with Python and Django - from PostgreSQL
+                    data models to REST APIs, deployed on Linux with Nginx and Gunicorn.
                 </p>
             </section>
 
             <section id="skills" aria-labelledby="skills-heading">
-                <h2 id="skills-heading">Skills</h2>
+                <h2 id="skills-heading"><span class="hash">##</span> skills</h2>
                 <ul class="skill-list">
                     <li>Python</li>
                     <li>Django</li>
@@ -347,7 +471,7 @@
             </section>
 
             <section id="projects" aria-labelledby="projects-heading">
-                <h2 id="projects-heading">Projects</h2>
+                <h2 id="projects-heading"><span class="hash">##</span> projects</h2>
 
                 <div class="project-list">
                     <article class="project">
@@ -376,7 +500,7 @@
             </section>
 
             <section id="education" aria-labelledby="education-heading">
-                <h2 id="education-heading">Education</h2>
+                <h2 id="education-heading"><span class="hash">##</span> education</h2>
                 <div class="record">
                     <h3>Gulistan State University</h3>
                     <p class="period">2025 - present</p>
@@ -385,7 +509,7 @@
             </section>
 
             <section id="certification" aria-labelledby="certification-heading">
-                <h2 id="certification-heading">Certification</h2>
+                <h2 id="certification-heading"><span class="hash">##</span> certification</h2>
                 <div class="record">
                     <h3>Full Stack Python Development</h3>
                     <p class="period">One-year course</p>
@@ -397,16 +521,16 @@
             </section>
 
             <section id="resume" aria-labelledby="resume-heading">
-                <h2 id="resume-heading">Resume</h2>
+                <h2 id="resume-heading"><span class="hash">##</span> resume</h2>
                 <p>Download the full resume as a PDF for an offline copy.</p>
                 <a class="resume-link" href="/cv.pdf" download>Download CV</a>
             </section>
 
-        </main>
+            <footer>
+                <p>&copy; <span id="year"></span> Turdiali Xasanbayev</p>
+            </footer>
 
-        <footer>
-            <p>&copy; <span id="year"></span> Turdiali Xasanbayev</p>
-        </footer>
+        </main>
 
     </div>
 
