@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Turdiali Xasanbayev</title>
+    <title>Turdiali Xasanbayev - Backend dasturchi</title>
 
     <meta name="description"
-        content="Turdiali Xasanbayev — backend developer working with Python, Django, DRF and PostgreSQL, deploying applications on Linux with Nginx and Gunicorn.">
+        content="Turdiali Xasanbayev - Python, Django, DRF va PostgreSQL bilan ishlaydigan backend dasturchi. Ilovalarni Linux serverlarda Nginx va Gunicorn yordamida joylashtiradi.">
     <meta name="keywords"
-        content="Turdiali Xasanbayev, backend developer, Python developer, Django developer, Django REST Framework, PostgreSQL, Linux server, Nginx, Gunicorn, Tashkent, Uzbekistan">
+        content="Turdiali Xasanbayev, backend dasturchi, Python dasturchi, Django dasturchi, Django REST Framework, PostgreSQL, Linux server, Nginx, Gunicorn, Toshkent, O'zbekiston">
     <meta name="author" content="Turdiali Xasanbayev">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://xasanbayev.uz/">
     <meta name="theme-color" content="#f3f4f0">
 
-    <meta property="og:title" content="Turdiali Xasanbayev — Backend Developer">
+    <meta property="og:title" content="Turdiali Xasanbayev - Backend Dasturchi">
     <meta property="og:description"
-        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys applications on Linux with Nginx and Gunicorn.">
+        content="Python, Django, DRF va PostgreSQL bilan ishlaydigan backend dasturchi. Ilovalarni Linux serverlarda Nginx va Gunicorn yordamida joylashtiradi.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="xasanbayev.uz">
     <meta property="og:url" content="https://xasanbayev.uz/">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="uz_UZ">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Turdiali Xasanbayev — Backend Developer">
+    <meta name="twitter:title" content="Turdiali Xasanbayev - Backend Dasturchi">
     <meta name="twitter:description"
-        content="Backend developer working with Python, Django, DRF and PostgreSQL. Deploys applications on Linux with Nginx and Gunicorn.">
+        content="Python, Django, DRF va PostgreSQL bilan ishlaydigan backend dasturchi. Ilovalarni Linux serverlarda Nginx va Gunicorn yordamida joylashtiradi.">
 
     <script type="application/ld+json">
     {
@@ -35,7 +35,7 @@
         "@type": "Person",
         "name": "Turdiali Xasanbayev",
         "url": "https://xasanbayev.uz/",
-        "jobTitle": "Backend Developer",
+        "jobTitle": "Backend Dasturchi",
         "knowsAbout": ["Python", "Django", "Django REST Framework", "PostgreSQL", "Linux", "Nginx", "Gunicorn"],
         "sameAs": [
             "https://github.com/turdialixasanbayev",
@@ -43,7 +43,8 @@
         ],
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Tashkent",
+            "addressLocality": "Bekobod",
+            "addressRegion": "Toshkent viloyati",
             "addressCountry": "UZ"
         }
     }
@@ -52,7 +53,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -70,7 +71,7 @@
             --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-            --sidebar-w: 252px;
+            --sidebar-w: 264px;
             --gap: 56px;
         }
 
@@ -130,7 +131,7 @@
         /* shell: sidebar + main */
 
         .shell {
-            max-width: 980px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: clamp(28px, 5vw, 56px) 20px 64px;
             display: grid;
@@ -139,7 +140,7 @@
             align-items: start;
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 780px) {
             .shell {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -156,7 +157,7 @@
             padding: 24px 22px;
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 780px) {
             .sidebar {
                 position: static;
             }
@@ -183,9 +184,17 @@
             color: var(--ink-3);
         }
 
+        .id-bio {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-size: 13px;
+            color: var(--ink-2);
+        }
+
         .id-contact {
             font-style: normal;
-            margin-top: 18px;
+            margin-top: 14px;
             padding-top: 16px;
             border-top: 1px solid var(--line);
             display: flex;
@@ -243,11 +252,12 @@
             min-width: 14px;
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 780px) {
             .id-nav ol {
                 flex-direction: row;
                 flex-wrap: wrap;
                 column-gap: 16px;
+                row-gap: 6px;
             }
         }
 
@@ -284,13 +294,65 @@
             margin-top: 14px;
             font-size: 16px;
             color: var(--ink-2);
-            max-width: 56ch;
+            max-width: 60ch;
+        }
+
+        #summary p+p {
+            margin-top: 12px;
+        }
+
+        .summary-stats {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .summary-stats div {
+            background: var(--surface);
+            padding: 14px 16px;
+        }
+
+        .summary-stats .num {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent);
+        }
+
+        .summary-stats .label {
+            margin-top: 4px;
+            font-size: 12.5px;
+            color: var(--ink-3);
+        }
+
+        @media (max-width: 520px) {
+            .summary-stats {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         /* skills */
 
-        .skill-list {
+        .skill-group {
+            margin-top: 18px;
+        }
+
+        .skill-group:first-of-type {
             margin-top: 14px;
+        }
+
+        .skill-group h3 {
+            font-size: 12.5px;
+            font-family: var(--font-mono);
+            color: var(--ink-3);
+            font-weight: 500;
+        }
+
+        .skill-list {
+            margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 10px;
@@ -306,13 +368,73 @@
             padding: 6px 12px;
         }
 
+        /* experience / timeline */
+
+        .timeline {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 108px 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 520px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        .timeline-item time {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--ink-3);
+            padding-top: 2px;
+        }
+
+        .timeline-item h3 {
+            font-size: 15.5px;
+            font-weight: 600;
+        }
+
+        .timeline-item .role {
+            margin-top: 2px;
+            font-size: 13px;
+            color: var(--accent);
+            font-family: var(--font-mono);
+        }
+
+        .timeline-item p {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--ink-2);
+            max-width: 54ch;
+        }
+
+        .timeline-item ul {
+            margin-top: 10px;
+            padding-left: 18px;
+            max-width: 54ch;
+        }
+
+        .timeline-item li {
+            font-size: 13.5px;
+            color: var(--ink-2);
+            margin-top: 5px;
+        }
+
         /* projects */
 
         .project-list {
             margin-top: 14px;
             display: flex;
             flex-direction: column;
-            gap: 26px;
+            gap: 28px;
         }
 
         .project-top {
@@ -344,7 +466,23 @@
             margin-top: 8px;
             font-size: 14.5px;
             color: var(--ink-2);
-            max-width: 58ch;
+            max-width: 60ch;
+        }
+
+        .project-tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 8px;
+            list-style: none;
+        }
+
+        .project-tags li {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--ink-2);
+            background: var(--accent-soft);
+            padding: 4px 9px;
         }
 
         /* education & certification records */
@@ -374,7 +512,34 @@
             margin-top: 8px;
             font-size: 14px;
             color: var(--ink-2);
-            max-width: 56ch;
+            max-width: 58ch;
+        }
+
+        /* approach */
+
+        .approach-list {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px 28px;
+        }
+
+        @media (max-width: 600px) {
+            .approach-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .approach-item h3 {
+            font-size: 14.5px;
+            font-weight: 600;
+        }
+
+        .approach-item p {
+            margin-top: 6px;
+            font-size: 13.5px;
+            color: var(--ink-2);
+            max-width: 44ch;
         }
 
         /* resume */
@@ -383,8 +548,14 @@
             margin-top: 14px;
             font-size: 14.5px;
             color: var(--ink-2);
-            max-width: 50ch;
+            max-width: 52ch;
             margin-bottom: 18px;
+        }
+
+        .resume-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .resume-link {
@@ -403,6 +574,18 @@
             background: var(--accent);
         }
 
+        .resume-link.secondary {
+            color: var(--ink);
+            background: transparent;
+            border: 1px solid var(--line);
+        }
+
+        .resume-link.secondary:hover {
+            background: var(--surface);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         /* footer */
 
         footer {
@@ -412,20 +595,31 @@
             font-family: var(--font-mono);
             font-size: 12px;
             color: var(--ink-3);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
         }
     </style>
 </head>
 
 <body>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Kontentga o'tish</a>
 
     <div class="shell">
 
         <aside class="sidebar">
             <p class="id-name">Turdiali Xasanbayev</p>
-            <p class="id-role">Backend Developer</p>
-            <p class="id-location">Tashkent, Uzbekistan</p>
+            <p class="id-role">Backend Dasturchi</p>
+            <p class="id-location">Bekobod, Toshkent viloyati, O'zbekiston</p>
+
+            <p class="id-bio">
+                Ma'lumotlar modellarini loyihalashdan REST API yozishgacha,
+                so'ngra ilovani Linux serverda Nginx va Gunicorn yordamida
+                ishga tushirishgacha - butun backend jarayonini
+                boshdan-oxirigacha mustaqil boshqaraman.
+            </p>
 
             <address class="id-contact">
                 <a href="mailto:xasanbayevturdiali7@gmail.com">xasanbayevturdiali7@gmail.com</a>
@@ -435,14 +629,16 @@
                 <a href="https://t.me/turdialixasanbayev" target="_blank" rel="noopener">t.me/turdialixasanbayev</a>
             </address>
 
-            <nav class="id-nav" aria-label="Section navigation">
+            <nav class="id-nav" aria-label="Bo'limlar bo'yicha navigatsiya">
                 <ol>
-                    <li><a href="#summary"><span class="ln">1</span>summary</a></li>
-                    <li><a href="#skills"><span class="ln">2</span>skills</a></li>
-                    <li><a href="#projects"><span class="ln">3</span>projects</a></li>
-                    <li><a href="#education"><span class="ln">4</span>education</a></li>
-                    <li><a href="#certification"><span class="ln">5</span>certification</a></li>
-                    <li><a href="#resume"><span class="ln">6</span>resume</a></li>
+                    <li><a href="#summary"><span class="ln">1</span>haqimda</a></li>
+                    <li><a href="#skills"><span class="ln">2</span>ko'nikmalar</a></li>
+                    <li><a href="#approach"><span class="ln">3</span>ish uslubim</a></li>
+                    <li><a href="#experience"><span class="ln">4</span>tajriba</a></li>
+                    <li><a href="#projects"><span class="ln">5</span>loyihalar</a></li>
+                    <li><a href="#education"><span class="ln">6</span>ta'lim</a></li>
+                    <li><a href="#certification"><span class="ln">7</span>sertifikat</a></li>
+                    <li><a href="#resume"><span class="ln">8</span>rezyume</a></li>
                 </ol>
             </nav>
         </aside>
@@ -450,84 +646,253 @@
         <main id="main">
 
             <section id="summary" aria-labelledby="summary-heading">
-                <h2 id="summary-heading"><span class="hash">##</span> summary</h2>
+                <h2 id="summary-heading"><span class="hash">##</span> haqimda</h2>
                 <p>
-                    I design and build backend systems with Python and Django - from PostgreSQL
-                    data models to REST APIs, deployed on Linux with Nginx and Gunicorn.
+                    Men backend tomonga ixtisoslashgan dasturchiman: loyihaning eng boshida
+                    ma'lumotlar modellarini PostgreSQL'da diqqat bilan loyihalashdan boshlab,
+                    Django orqali ishonchli va tushunarli REST API'lar yozishgacha, so'ngra
+                    tayyor ilovani Linux serverda Nginx va Gunicorn yordamida ishga
+                    tushirishgacha bo'lgan butun jarayonni boshdan-oxirigacha mustaqil
+                    bajaraman. Har bir bosqichda kodning to'g'ri ishlashi, xavfsizligi va
+                    kelajakda oson qo'llab-quvvatlanishi men uchun birinchi o'rinda turadi.
                 </p>
+                <p>
+                    Hozirda Gulistan davlat universitetida Axborot tizimlari va texnologiyalari
+                    yo'nalishi bo'yicha tahsil olaman va shu bilan birga nazariy bilimlarni
+                    amaliyot bilan mustahkamlash uchun real loyihalar ustida ishlayman -
+                    jumladan, iqtisodiy ta'lim platformasining backend arxitekturasini qurish,
+                    ma'lumotlar bazasini loyihalash va uni serverga joylashtirish jarayonlarida
+                    bevosita ishtirok etaman. Bu tajriba universitetda olingan nazariy bilimlarni
+                    real production muhitida sinab ko'rish imkonini beradi.
+                </p>
+                <p>
+                    Kelajakda backend tizimlarni yanada chuqurroq o'rganish, murakkab
+                    arxitekturaviy yechimlar bilan ishlash va jamoaviy loyihalarda o'z
+                    hissamni qo'shishni maqsad qilib qo'yganman.
+                </p>
+
+                <div class="summary-stats">
+                    <div>
+                        <div class="num">2+</div>
+                        <div class="label">yillik tajriba</div>
+                    </div>
+                    <div>
+                        <div class="num">2</div>
+                        <div class="label">yakunlangan loyiha</div>
+                    </div>
+                    <div>
+                        <div class="num">1</div>
+                        <div class="label">amaldagi sertifikat</div>
+                    </div>
+                </div>
             </section>
 
             <section id="skills" aria-labelledby="skills-heading">
-                <h2 id="skills-heading"><span class="hash">##</span> skills</h2>
-                <ul class="skill-list">
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>DRF</li>
-                    <li>PostgreSQL</li>
-                    <li>Git</li>
-                    <li>Linux</li>
-                    <li>Deployment (Nginx, Gunicorn)</li>
-                </ul>
+                <h2 id="skills-heading"><span class="hash">##</span> ko'nikmalar</h2>
+
+                <div class="skill-group">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>Django REST Framework</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Ma'lumotlar bazasi</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>SQLite</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Infratuzilma va joylashtirish</h3>
+                    <ul class="skill-list">
+                        <li>Linux</li>
+                        <li>Nginx</li>
+                        <li>Gunicorn</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="approach" aria-labelledby="approach-heading">
+                <h2 id="approach-heading"><span class="hash">##</span> ish uslubim</h2>
+
+                <div class="approach-list">
+                    <div class="approach-item">
+                        <h3>Aniqlik va soddalik</h3>
+                        <p>Kodni keraksiz murakkablashtirmayman - har bir muammoni eng
+                            tushunarli, ishonchli va kelajakda osongina o'zgartirish mumkin
+                            bo'lgan yo'l bilan hal qilishga harakat qilaman.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Xavfsiz asos</h3>
+                        <p>Autentifikatsiya, ruxsatlar tizimi va maxfiy ma'lumotlarni
+                            loyihaning boshidanoq jiddiy yondashuv bilan rejalashtiraman,
+                            Django'ning o'rnatilgan xavfsizlik mexanizmlaridan to'liq
+                            foydalanaman.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Ishlab chiqarishga tayyor</h3>
+                        <p>Loyihani faqat lokal muhitda emas, balki haqiqiy foydalanuvchilar
+                            bilan serverda barqaror va xavfsiz ishlaydigan darajaga yetkazaman
+                            - Nginx, Gunicorn va to'g'ri sozlangan muhit orqali.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>O'qish davom etadi</h3>
+                        <p>Har bir yangi loyiha men uchun o'rganish imkoniyati - yangi
+                            vositalar va arxitekturaviy yondashuvlarni sinab ko'rib,
+                            bilimlarimni doimiy ravishda kengaytirib boraman.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Puxta tahlil</h3>
+                        <p>Kodni yozishdan oldin muammoni chuqur tahlil qilaman, so'ngra
+                            yechimni amalga oshiraman va natijani sinovdan o'tkazaman - bu
+                            xatolarni erta aniqlash imkonini beradi.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>Ochiq muloqot</h3>
+                        <p>Loyiha talablarini aniqlashtirish, jarayon davomida progress
+                            haqida xabar berish va muammolarni o'z vaqtida bildirish -
+                            ishonchli hamkorlikning asosi deb bilaman.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" aria-labelledby="experience-heading">
+                <h2 id="experience-heading"><span class="hash">##</span> tajriba</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <time>2024 - hozirgi</time>
+                        <div>
+                            <h3>iqtisodiybilim.uz</h3>
+                            <p class="role">Lead Backend Developer</p>
+                            <p>
+                                Loyihaning butun backend qismini noldan Django va PostgreSQL
+                                asosida qurdim va uni ishlab chiqarish muhitiga qadar mustaqil
+                                olib bordim.
+                            </p>
+                            <ul>
+                                <li>Ma'lumotlar bazasi arxitekturasini loyihalash va model
+                                    darajasidagi bog'lanishlarni aniqlash</li>
+                                <li>Admin panelni sozlash va kontentni boshqarish imkoniyatlarini
+                                    kengaytirish</li>
+                                <li>Ilovani Linux serverga Nginx va Gunicorn yordamida
+                                    joylashtirish va barqaror ishlashini ta'minlash</li>
+                                <li>Har bir sahifa uchun SEO va Open Graph meta-teglarini
+                                    sozlash</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="projects" aria-labelledby="projects-heading">
-                <h2 id="projects-heading"><span class="hash">##</span> projects</h2>
+                <h2 id="projects-heading"><span class="hash">##</span> loyihalar</h2>
 
                 <div class="project-list">
                     <article class="project">
                         <div class="project-top">
                             <h3>iqtisodiybilim.uz</h3>
-                            <a href="https://iqtisodiybilim.uz" target="_blank" rel="noopener">Visit site</a>
+                            <a href="https://iqtisodiybilim.uz" target="_blank" rel="noopener">Saytga o'tish</a>
                         </div>
                         <p>
-                            An educational website that helps people in Uzbekistan learn the basics of
-                            economics. I built the backend with Django and PostgreSQL and set it up to
-                            run on a Linux server with Nginx and Gunicorn.
+                            O'zbekistondagi foydalanuvchilarga iqtisodiyot asoslarini tushunarli
+                            tilda o'rganishda yordam beruvchi ta'lim sayti. Loyihaning butun
+                            backend qismini - ma'lumotlar modellaridan tortib, admin panel va
+                            kontentni boshqarish tizimigacha - Django va PostgreSQL asosida
+                            noldan qurdim. Saytni ishonchli va tez ishlashi uchun Nginx va
+                            Gunicorn yordamida Linux serverga joylashtirdim, shuningdek qidiruv
+                            tizimlarida yaxshi ko'rinishi uchun SEO va Open Graph sozlamalarini
+                            amalga oshirdim.
                         </p>
+                        <ul class="project-tags">
+                            <li>Django</li>
+                            <li>PostgreSQL</li>
+                            <li>Nginx</li>
+                            <li>Gunicorn</li>
+                        </ul>
                     </article>
 
                     <article class="project">
                         <div class="project-top">
                             <h3>xasanbayev.uz</h3>
-                            <a href="https://xasanbayev.uz" target="_blank" rel="noopener">Visit site</a>
+                            <a href="https://xasanbayev.uz" target="_blank" rel="noopener">Saytga o'tish</a>
                         </div>
                         <p>
-                            My personal portfolio site, where this page and my project list are built
-                            with a simple, maintainable structure.
+                            Shaxsiy portfolio saytim - ushbu sahifa, loyihalarim ro'yxati va
+                            men bilan bog'lanish imkoniyatlari sodda, tez yuklanadigan va oson
+                            qo'llab-quvvatlanadigan tuzilma asosida qurilgan. Sayt semantik
+                            HTML, moslashuvchan (responsive) dizayn hamda to'liq sozlangan
+                            SEO va Open Graph meta-teglari bilan yaratilgan - bu uni qidiruv
+                            tizimlari va ijtimoiy tarmoqlarda to'g'ri ko'rsatilishini
+                            ta'minlaydi.
                         </p>
+                        <ul class="project-tags">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>SEO</li>
+                        </ul>
                     </article>
                 </div>
             </section>
 
             <section id="education" aria-labelledby="education-heading">
-                <h2 id="education-heading"><span class="hash">##</span> education</h2>
+                <h2 id="education-heading"><span class="hash">##</span> ta'lim</h2>
                 <div class="record">
-                    <h3>Gulistan State University</h3>
-                    <p class="period">2025 - present</p>
-                    <p class="detail">B.Sc. in Information Systems and Technologies, 2nd-year student.</p>
+                    <h3>Gulistan davlat universiteti</h3>
+                    <p class="period">2025 - hozirgi</p>
+                    <p class="detail">
+                        Axborot tizimlari va texnologiyalari yo'nalishi bo'yicha 2-kurs
+                        talabasiman. Dasturlash asoslari, ma'lumotlar bazasini loyihalash,
+                        tizimli tahlil va axborot texnologiyalari sohasidagi zamonaviy
+                        yondashuvlarni chuqur o'rganmoqdaman. Universitetda olingan nazariy
+                        bilimlarni amaliy loyihalarda qo'llash orqali bilimlarimni doimiy
+                        mustahkamlab boraman.
+                    </p>
                 </div>
             </section>
 
             <section id="certification" aria-labelledby="certification-heading">
-                <h2 id="certification-heading"><span class="hash">##</span> certification</h2>
+                <h2 id="certification-heading"><span class="hash">##</span> sertifikat</h2>
                 <div class="record">
                     <h3>Full Stack Python Development</h3>
-                    <p class="period">One-year course</p>
+                    <p class="period">Bir yillik kurs</p>
                     <p class="detail">
-                        Covered Python fundamentals, Django and DRF backend development, REST APIs,
-                        and database design.
+                        Python dasturlash tilining asoslaridan boshlab, Django va Django
+                        REST Framework yordamida backend dasturlash, REST API'lar yaratish,
+                        ma'lumotlar bazasini loyihalash hamda ilovalarni serverga joylashtirish
+                        jarayonlarini o'z ichiga oldi. Kurs davomida bir nechta amaliy loyihalar
+                        ustida ishlab, nazariy bilimlarni real kod yozish tajribasiga
+                        aylantirdim.
                     </p>
                 </div>
             </section>
 
             <section id="resume" aria-labelledby="resume-heading">
-                <h2 id="resume-heading"><span class="hash">##</span> resume</h2>
-                <p>Download the full resume as a PDF for an offline copy.</p>
-                <a class="resume-link" href="/cv.pdf" download>Download CV</a>
+                <h2 id="resume-heading"><span class="hash">##</span> rezyume</h2>
+                <p>
+                    To'liq rezyumemda ish tajribam, ko'nikmalarim va yakunlagan loyihalarim
+                    haqida batafsil ma'lumot keltirilgan. Uni PDF formatida offline nusxa
+                    sifatida yuklab olishingiz yoki to'g'ridan-to'g'ri men bilan
+                    bog'lanishingiz mumkin - yangi loyihalar va hamkorlik takliflariga
+                    doimo ochiqman.
+                </p>
+                <div class="resume-actions">
+                    <a class="resume-link" href="/cv.pdf" download>Rezyumeni yuklab olish</a>
+                    <a class="resume-link secondary" href="mailto:xasanbayevturdiali7@gmail.com">Bog'lanish</a>
+                </div>
             </section>
 
             <footer>
                 <p>&copy; <span id="year"></span> Turdiali Xasanbayev</p>
+                <p>Bekobod, Toshkent viloyati, O'zbekiston</p>
             </footer>
 
         </main>
